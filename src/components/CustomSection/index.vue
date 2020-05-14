@@ -53,41 +53,41 @@ export default {
   }
 
   &:nth-child(even) {
-    padding-right: 25px;
+    padding-right: 20px;
 
     &::before {
       right: -1px;
-      border-top: 1px solid #353535;
-      border-bottom: 1px solid #353535;
-      border-right: 1px solid #353535;
+      border-top: 1px solid #b1b1b1;
+      border-bottom: 1px solid #b1b1b1;
+      border-right: 1px solid #b1b1b1;
       border-left: 1px solid whitesmoke;
       border-top-right-radius: inherit;
       border-bottom-right-radius: inherit;
       box-shadow: 0 2px 0 0 white,
                   0 -2px 0 0 white,
                   2px 0 0 0 white,
-                  0 3px 0 0 #353535,
-                  0 -3px 0 0 #353535,
-                  3px 0 0 0 #353535;
+                  0 3px 0 0 #b1b1b1,
+                  0 -3px 0 0 #b1b1b1,
+                  3px 0 0 0 #b1b1b1;
     }
   }
 
   &:nth-child(odd) {
-    padding-left: 25px;
+    padding-left: 20px;
 
     &::before{
       left: -1px;
-      border-top: 1px solid #353535;
-      border-bottom: 1px solid #353535;
-      border-left: 1px solid #353535;
+      border-top: 1px solid #b1b1b1;
+      border-bottom: 1px solid #b1b1b1;
+      border-left: 1px solid #b1b1b1;
       border-top-left-radius: inherit;
       border-bottom-left-radius: inherit;
       box-shadow: 0 2px 0 0 white,
                   -2px 0 0 0 white,
                   0 -2px 0 0 white, 
-                  0 3px 0 0 #353535,
-                  0 -3px 0 0 #353535,
-                  -3px 0 0 0 #353535;
+                  0 3px 0 0 #b1b1b1,
+                  0 -3px 0 0 #b1b1b1,
+                  -3px 0 0 0 #b1b1b1;
     }
   }
 
@@ -105,17 +105,26 @@ export default {
       content: "";
       position: absolute;
       top: -44px;
-      left: calc(50% - 15px);
-      transform: translateX(-50%);
+      left: 50%;
       width: 40px;
       height: 40px;
-      border-bottom: 1px solid #353535;
-      border-left: 1px solid #353535;
+      border-bottom: 1px solid #81888F;
+      border-left: 1px solid #81888F;
       border-bottom-left-radius: inherit;
       box-shadow: 0 2px 0 0 white,
                   -2px 0 0 0 white,
-                  -1px 3px 0 0 #353535, 
-                  -3px 1px 0 0 #353535;
+                  -1px 3px 0 0 #81888F, 
+                  -3px 1px 0 0 #81888F;
+    }
+
+    & .custom-section__inner::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 10px);
+      width: 40px;
+      height: 40px;
+      background-color: whitesmoke;
     }
   }
 

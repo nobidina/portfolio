@@ -136,7 +136,7 @@ export default {
   &__decore::before,
   &__decore::after {
     position: absolute;
-    width: 20%;
+    width: 30%;
     height: 2px;
     border: 1px solid #353535;
 
@@ -175,7 +175,7 @@ export default {
     animation: trembling 0.4s;
     animation-iteration-count: infinite;
     top: 50px;
-    left: -61px;
+    left: -80px;
     transform: rotate(20deg);
 
     @media @tablet {

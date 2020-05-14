@@ -4,16 +4,16 @@
       <intro :name="user.name" :title="user.title" :photo="user.photo" />
     </custom-section>
     <custom-section>
-      <skills :title="user.greeting" :text="user.about" :skills="user.skills"/>
+      <skills :title="user.greeting" :text="user.about" :skills="user.skills" />
     </custom-section>
     <custom-section>
-      <history :history="user.history"/>
+      <history :history="user.history" />
     </custom-section>
     <custom-section>
       <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" />
     </custom-section>
     <custom-section>
-      <contacts :contacts="user.contacts"/>
+      <contacts :contacts="user.contacts" :is-color-mode="isColorMode" @switchChecked="switchColorMode" />
     </custom-section>
   </div>
 </template>
@@ -27,8 +27,8 @@ import resto_1x from "./img/resto@1x.jpg";
 import resto_2x from "./img/resto@2x.jpg";
 import organic_1x from "./img/organic@1x.jpg";
 import organic_2x from "./img/organic@2x.jpg";
-// import mishka_1x from "./img/mishka@1x.jpg";
-// import mishka_2x from "./img/mishka@2x.jpg";
+import mishka_1x from "./img/mishka@1x.jpg";
+import mishka_2x from "./img/mishka@2x.jpg";
 
 import Contacts from '@/components/Contacts';
 import CustomSection from '@/components/CustomSection';
@@ -134,29 +134,29 @@ export default {
       ],
       portfolio: [
         {
-          href: "https://nobidina.github.io/sedona.html",
+          href: "https://nobidina.github.io/160298-sedona/",
           imgSrc: sedona_1x,
           imgSrcset: sedona_2x,
           alt: "city website"
         },
         {
-          href: "https://nobidina.github.io/resto.html",
+          href: "https://nobidina.github.io/resto/",
           imgSrc: resto_1x,
           imgSrcset: resto_2x,
           alt: "restaurant website"
         },
         {
-          href: "https://nobidina.github.io/mishka/organic.html",
+          href: "https://nobidina.github.io/organic/",
           imgSrc: organic_1x,
           imgSrcset: organic_2x,
           alt: "company website"
         },
-        // {
-        //   href: "https://nobidina.github.io/mishka.html",
-        //   imgSrc: mishka_1x,
-        //   imgSrcset: mishka_2x,
-        //   alt: "online shop"
-        // }
+        {
+          href: "https://nobidina.github.io/mishka.html",
+          imgSrc: mishka_1x,
+          imgSrcset: mishka_2x,
+          alt: "online shop"
+        }
       ],
       portfolioLink: {
         text: "github page",
@@ -180,8 +180,15 @@ export default {
           icon: "instagram"
         }
       ]
+    },
+    isColorMode: true
+  }),
+
+  methods: {
+    switchColorMode () {
+      this.isColorMode = !this.isColorMode;
     }
-  })
+  }
 }
 
 </script>

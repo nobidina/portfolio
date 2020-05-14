@@ -91,11 +91,11 @@ export default {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 12px;
 
     @media @tablet {
       flex-wrap: nowrap;
       justify-content: flex-end;
+      margin-bottom: 12px;
     }
 
     &:last-child {
@@ -117,8 +117,7 @@ export default {
     animation-iteration-count: infinite;
     overflow: hidden;
     box-sizing: border-box;
-    width: calc(100% - 50px);
-    min-width: 180px;
+    width: calc(100% - 55px);
     height: 14px;
     margin-right: 10px;
     border-radius: 10px;
@@ -132,16 +131,17 @@ export default {
 
   &__scale-fill {
     height: 12px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 10px;
     border-right: 1px solid #353535;
     background: white;
     background-size: contain;
   }
 
   &__score {
-    width: 40px;
+    flex-shrink: 0;
+    width: 45px;
     text-align: right;
+    font-weight: 600;
   }
 }
 

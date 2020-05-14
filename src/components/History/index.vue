@@ -74,7 +74,7 @@ export default {
 .history {
   &__item {
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
     @media @tablet {
       margin-bottom: 35px;
@@ -110,23 +110,26 @@ export default {
 
   &__date {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 0.8em;
     line-height: 1.5em;
-    font-weight: 600;
+    font-weight: 400;
 
     @media @tablet {
       margin-bottom: 10px;
       font-size: 1.17em;
+      font-weight: 600;
     }
   }
 
   &__title {
     margin-bottom: 7px;
     font-size: 1em;
+    font-weight: 400;
     
     @media @tablet {
       margin-bottom: 25px;
+      font-weight: 600;
     }
   }
 }
