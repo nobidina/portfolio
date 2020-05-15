@@ -109,6 +109,8 @@ export default {
 
     @media @desktop {
       width: auto;
+      min-width: 70px;
+      text-align: right;
     }
   }
 

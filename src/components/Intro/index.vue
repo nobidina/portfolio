@@ -82,7 +82,6 @@ export default {
   }
 
   &__photo {
-    // transition: transform 0.4s ease-in-out;
     position: relative;
     width: 180px;
     height: 171px;
@@ -108,30 +107,9 @@ export default {
       height: 313px;
     }
 
-    &:hover {
-      // transform: scale(1.1);
-      & .intro__decore {
-        @media @tablet {
-          animation: trembling 0.4s;
-          animation-iteration-count: infinite;
-        }
-      }
-
-      & + .intro__heading .intro__title {
-        @media @tablet {
-          animation: scale 1s step-start;
-          animation-iteration-count: infinite;
-        }
-      }
-    }
-
     & + .intro__heading .intro__title {
       animation: scale 1s step-start;
       animation-iteration-count: infinite;
-
-      @media @tablet {
-        animation: none;
-      }
     }
   }
 
@@ -204,7 +182,6 @@ export default {
     }
 
     @media @desktop {
-      animation: none;
       left: -250px;   
     }
 

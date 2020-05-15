@@ -1,5 +1,5 @@
 <template>
-  <section class="custom-section">
+  <section class="custom-section" :class="{ 'custom-section--color':  isColor }">
     <div class="custom-section__inner">
       <slot />
     </div>
@@ -11,7 +11,12 @@
 export default {
   name: 'CustomSection',
 
-  props: {},
+  props: {
+    isColor: {
+      type: Boolean,
+      default: false
+    }
+  },
   
   data: () => ({})
 }
@@ -65,6 +70,10 @@ export default {
       padding-right: 30px;
     }
 
+    @media @desktop {
+      padding-right: 70px;
+    }
+
     &::before {
       right: -1px;
       border-top: 1px solid #b1b1b1;
@@ -87,6 +96,10 @@ export default {
 
     @media @tablet {
       padding-left: 30px;
+    }
+
+    @media @desktop {
+      padding-left: 70px;
     }
 
     &::before{
@@ -112,6 +125,11 @@ export default {
     @media @tablet {
       padding-left: 30px;
       padding-right: 30px;
+    }
+
+    @media @desktop {
+      padding-left: 70px;
+      padding-right: 70px;
     }
 
     &:before {
@@ -166,6 +184,10 @@ export default {
       background: url("./img/ball.svg") no-repeat center center;
       background-size: contain;
     }
+  }
+
+  &--color {
+    
   }
 }
 

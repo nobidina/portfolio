@@ -106,6 +106,13 @@ export default {
     }
   }
 
+  &__text-wrapper {
+    @media @desktop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__date {
     display: block;
     margin-bottom: 10px;
@@ -120,6 +127,7 @@ export default {
 
     @media @desktop {
       margin-bottom: 10px;
+      order: -1;
       font-size: 1.17em;
     }
   }
@@ -135,7 +143,9 @@ export default {
     }
     
     @media @desktop {
-      margin-bottom: 25px;
+      order: 0;
+      margin-bottom: 20px;
+      font-size: 1.17em;
     }
   }
 }

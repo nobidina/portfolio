@@ -46,6 +46,10 @@ export default {
   &__text {
     margin-bottom: 30px;
     line-height: 1.5em;
+
+    @media @tablet {
+      margin-bottom: 35px;
+    }
   }
 
   &__list {
@@ -69,9 +73,30 @@ export default {
       margin-right: 4%;
     }
 
+    @media @desktop {
+      width: 30%;
+      margin-right: 3%;
+    }
+
     &:nth-child(2n + 2) {
       @media @tablet {
         margin-right: 0;
+      }
+
+      @media @desktop {
+        margin-right: 3%;
+      }
+    }
+
+    &:nth-child(3n + 3) {
+      @media @desktop {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-last-child(3) {
+      @media @desktop {
+        margin-bottom: 0;
       }
     }
 

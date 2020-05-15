@@ -22,6 +22,8 @@
 
 import userPhoto_1x from "./img/user@1x.jpg";
 import userPhoto_2x from "./img/user@2x.jpg";
+import userPhotoColor_1x from "./img/user-color@1x.jpg";
+import userPhotoColor_2x from "./img/user-color@2x.jpg";
 import sedona_1x from "./img/sedona@1x.jpg";
 import sedona_2x from "./img/sedona@2x.jpg";
 import resto_1x from "./img/resto@1x.jpg";
@@ -56,7 +58,9 @@ export default {
       title: "Front - End Developer",
       photo: {
         src: userPhoto_1x,
-        srcSet: userPhoto_2x
+        srcSet: userPhoto_2x,
+        srcColor: userPhotoColor_1x,
+        srcSetColor: userPhotoColor_2x,
       },
       greeting: "Hi! Nice to see you here!",
       about: "I'm a Front-End developer with experience in developing websites and Web applications using HTML, CSS (+ pre/postprocessors), JS, and the VueJS framework. I really enjoy making PSD, Figma, or whatever else templates alive by the power of these technologies. Especially HTML and CSS.",
@@ -214,12 +218,11 @@ export default {
     padding-bottom: 40px;
     border-radius: 15px;
     box-shadow: 0px 5px 50px lightgrey;
-    background-color: whitesmoke;
   }
 
   @media @desktop {
     min-height: calc(100% - 100px);
-    max-width: 1200px;
+    max-width: 77%;
     margin: 50px auto;
     padding-left: 90px;
     padding-right: 90px;

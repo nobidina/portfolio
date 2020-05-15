@@ -20,6 +20,10 @@ export default {
   font-size: 1.5em;
   line-height: 1.5em;
   font-weight: 600;
+
+  @media @tablet {
+    margin-bottom: 40px;
+  }
 }
 
 </style>
