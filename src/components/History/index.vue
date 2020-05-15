@@ -74,7 +74,7 @@ export default {
     display: flex;
     margin-bottom: 30px;
 
-    @media @tablet {
+    @media @desktop {
       margin-bottom: 35px;
     }
 
@@ -87,7 +87,7 @@ export default {
     width: 33px;
     margin-right: 10px;
 
-    @media @tablet {
+    @media @desktop {
       width: 43px;
       margin-right: 15px;
     }
@@ -95,7 +95,7 @@ export default {
     svg {
       width: 33px;
 
-      @media @tablet {
+      @media @desktop {
         width: 43px;
       }
     }
@@ -114,9 +114,13 @@ export default {
     font-weight: 400;
 
     @media @tablet {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    @media @desktop {
       margin-bottom: 10px;
       font-size: 1.17em;
-      font-weight: 600;
     }
   }
 
@@ -124,10 +128,14 @@ export default {
     margin-bottom: 7px;
     font-size: 1em;
     font-weight: 400;
-    
+
     @media @tablet {
-      margin-bottom: 25px;
+      margin-bottom: 4px;
       font-weight: 600;
+    }
+    
+    @media @desktop {
+      margin-bottom: 25px;
     }
   }
 }

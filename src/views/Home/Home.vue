@@ -207,15 +207,23 @@ export default {
   background-color: whitesmoke;
 
   @media @tablet {
+    min-height: calc(100% - 40px);
+    margin: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 50px lightgrey;
+    background-color: whitesmoke;
+  }
+
+  @media @desktop {
     min-height: calc(100% - 100px);
     max-width: 1200px;
     margin: 50px auto;
     padding-left: 90px;
     padding-right: 90px;
     padding-bottom: 90px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 50px lightgrey;
-    background-color: whitesmoke;
   }
 }
 

@@ -52,10 +52,34 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media @tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
   }
 
   &__item {
     margin-bottom: 35px;
+
+    @media @tablet {
+      width: 48%;
+      margin-right: 4%;
+    }
+
+    &:nth-child(2n + 2) {
+      @media @tablet {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-last-child(2) {
+      @media @tablet {
+        margin-bottom: 0;
+      }
+    }
 
     &:last-of-type {
       margin-bottom: 0;
@@ -75,6 +99,10 @@ export default {
     border: 1px solid lightgrey;
     line-height: 0;
     background-color: lightgrey;
+
+    @media @tablet {
+      max-width: 100%;
+    }
   }
 
   &__img {

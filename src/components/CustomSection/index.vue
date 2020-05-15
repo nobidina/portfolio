@@ -38,8 +38,14 @@ export default {
     background-color: whitesmoke;
 
     @media @tablet {
-      padding: 90px 70px;
+      padding-top: 50px;
+      padding-bottom: 50px;
       border-radius: 50px;
+    }
+
+    @media @desktop {
+      padding-top: 90px;
+      padding-bottom: 90px;
     }
   }
 
@@ -54,6 +60,10 @@ export default {
 
   &:nth-child(even) {
     padding-right: 20px;
+
+    @media @tablet {
+      padding-right: 30px;
+    }
 
     &::before {
       right: -1px;
@@ -75,6 +85,10 @@ export default {
   &:nth-child(odd) {
     padding-left: 20px;
 
+    @media @tablet {
+      padding-left: 30px;
+    }
+
     &::before{
       left: -1px;
       border-top: 1px solid #b1b1b1;
@@ -94,6 +108,11 @@ export default {
   &:first-child {
     padding-left: 20px;
     padding-right: 20px;
+
+    @media @tablet {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
 
     &:before {
       content: none;
@@ -125,6 +144,10 @@ export default {
       width: 40px;
       height: 40px;
       background-color: whitesmoke;
+
+      @media @tablet {
+        left: 50%;
+      }
     }
   }
 

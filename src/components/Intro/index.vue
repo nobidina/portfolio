@@ -52,6 +52,10 @@ export default {
     margin-bottom: 30px;
 
     @media @tablet {
+      margin-bottom: 45px;
+    }
+
+    @media @desktop {
       margin-bottom: 60px;  
     }
   }
@@ -65,7 +69,7 @@ export default {
     line-height: 1em;
     font-weight: 400;
 
-    @media @tablet {
+    @media @desktop {
       margin-bottom: 30px;  
     }
   }
@@ -82,8 +86,7 @@ export default {
     position: relative;
     width: 180px;
     height: 171px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin: 6px;
     border-radius: 50%;
     border: 1px solid #81888F;
     box-shadow: 0 5px 0 0 white,
@@ -96,6 +99,11 @@ export default {
                 6px 0 0 0 #81888F;
 
     @media @tablet {
+      width: 255px;
+      height: 242px;
+    }
+
+    @media @desktop {
       width: 330px;
       height: 313px;
     }
@@ -141,6 +149,10 @@ export default {
     border: 1px solid #81888F;
 
     @media @tablet {
+      width: 65%;
+    }
+
+    @media @desktop {
       width: 250px;
     }
   }
@@ -152,6 +164,10 @@ export default {
     width: 100%;
 
     @media @tablet {
+      top: 50px;
+    }
+
+    @media @desktop {
       top: 90px;
       left: -23px;
       width: 270px;
@@ -165,6 +181,10 @@ export default {
     width: 100%;
 
     @media @tablet {
+      top: 90px;
+    }
+
+    @media @desktop {
       top: 163px;
       left: 35px;
       width: 250px;
@@ -179,6 +199,11 @@ export default {
     transform: rotate(20deg);
 
     @media @tablet {
+      top: 65px;
+      left: -185px;
+    }
+
+    @media @desktop {
       animation: none;
       left: -250px;   
     }
@@ -188,6 +213,10 @@ export default {
       transform: rotate(-20deg);
 
       @media @tablet {
+        left: 272px;
+      }
+
+      @media @desktop {
         left: 330px;
       }
     }
@@ -196,7 +225,7 @@ export default {
       left: -4px;
       transform: rotate(18deg);
 
-      @media @tablet {
+      @media @desktop {
         left: 0;
       }
     }
@@ -205,7 +234,7 @@ export default {
       left: -20px;
       transform: rotate(30deg);
 
-      @media @tablet {
+      @media @desktop {
         left: -34px;
       }
     }

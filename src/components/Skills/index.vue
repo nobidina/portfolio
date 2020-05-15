@@ -51,17 +51,17 @@ export default {
 @import "../../less/variables.less";
 
 .skills {
-  @media @tablet {
+  @media @desktop {
     display: flex;
   }
 
   &__text-wrapper {
     margin-bottom: 25px;
 
-    @media @tablet {
+    @media @desktop {
       width: 45%;
-      margin-bottom: 0;
       margin-right: auto;
+      margin-bottom: 0;
     }
   }
 
@@ -74,7 +74,7 @@ export default {
     margin: 0;
     padding: 0;
 
-    @media @tablet {
+    @media @desktop {
       flex-shrink: 0;
       width: 50%;
     }
@@ -92,7 +92,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
 
-    @media @tablet {
+    @media @desktop {
       flex-wrap: nowrap;
       justify-content: flex-end;
       margin-bottom: 12px;
@@ -107,7 +107,7 @@ export default {
     width: 100%;
     font-weight: 600;
 
-    @media @tablet {
+    @media @desktop {
       width: auto;
     }
   }
@@ -123,7 +123,7 @@ export default {
     border-radius: 10px;
     border: 1px solid #353535;
 
-    @media @tablet {
+    @media @desktop {
       min-width: 260px;
       margin-left: 20px;
     }

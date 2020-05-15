@@ -95,7 +95,7 @@ export default {
 .contacts {
   position: relative;
   
-  @media @tablet {
+  @media @desktop {
     display: flex;
   }
 
@@ -103,6 +103,10 @@ export default {
     padding-bottom: 220px;
 
     @media @tablet {
+      padding-bottom: 270px;
+    }
+
+    @media @desktop {
       width: 40%;
       margin-right: auto;
       padding-bottom: 0;
@@ -127,6 +131,12 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
+
+    @media @tablet {
+      width: 45px;
+      height: 40px;
+      margin-right: 20px;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -163,7 +173,7 @@ export default {
   width: 190px;
   height: 250px;
 
-  @media @tablet {
+  @media @desktop {
     width: 400px;
     height: 300px;
   }
@@ -174,14 +184,14 @@ export default {
     right: 0;
     z-index: 1;
 
-    @media @tablet {
+    @media @desktop {
       right: 50%;
       transform: translateX(50%);
     }
   }
 
   & .box {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       bottom: 0px;
       right: 50px;
@@ -209,7 +219,7 @@ export default {
     .cat {
       animation-name: cat-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat;
       }
     }
@@ -217,7 +227,7 @@ export default {
     .cat__head {
       animation-name: cat-head-mobile;
 
-      @media @tablet {
+      @media @desktop {
        animation-name: cat-head; 
       }
     }
@@ -225,7 +235,7 @@ export default {
     .cat__ear--left::after {
       animation-name: cat-left-ear-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-left-ear;
       }
     }
@@ -233,7 +243,7 @@ export default {
     .cat__ear--right::after {
       animation-name: cat-right-ear-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-right-ear;
       }
     }
@@ -241,7 +251,7 @@ export default {
     .cat__eye::after {
       animation-name: cat-eyes-after-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-eyes-after;
       }
     }
@@ -249,14 +259,14 @@ export default {
     .cat__eye {
       animation-name: cat-eyes-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-eyes;
       }
     }
 
     .cat__nose {
       animation-name: cat-nose-mobile;
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-nose;
       }
     }
@@ -264,7 +274,7 @@ export default {
     .cat__front-paw--left {
       animation-name: cat-front-left-pow-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-front-left-pow;
       }
     }
@@ -272,19 +282,19 @@ export default {
     .cat__front-paw--right {
       animation-name: cat-front-right-pow-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-front-right-pow;
       }
     }
 
     .cat__back-paw--left {
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-back-left-pow;
       }
     }
 
     .cat__back-paw--right {
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-back-right-pow;
       }
     }
@@ -292,7 +302,7 @@ export default {
     .cat__tail {
       animation-name: cat-tail-mobile;
 
-      @media @tablet {
+      @media @desktop {
         animation-name: cat-tail;
       }
     }
@@ -559,13 +569,13 @@ export default {
 }
 
 .box {
-  @media @tablet {
+  @media @desktop {
     width: 210px;
     height: 180px;
   }
   
   &__front {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       bottom: 0px;
       left: 50%;
@@ -579,7 +589,7 @@ export default {
   }
 
   &__front-lit {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       top: -2px;
       left: -13px;
@@ -593,7 +603,7 @@ export default {
   }
 
   &__side {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       bottom: -5px;
       transform: skewX(-32deg) rotate(-32deg);
@@ -615,7 +625,7 @@ export default {
   }
 
   &__side-lit {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       top: -14px;
       right: -74px;
@@ -629,7 +639,7 @@ export default {
   }
 
   &__back {
-    @media @tablet {
+    @media @desktop {
       position: absolute;
       bottom: 22px;
       left: 47px;
