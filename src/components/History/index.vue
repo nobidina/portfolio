@@ -40,9 +40,7 @@
           <span class="history__date">
             {{ item.date }}
           </span>
-          <p>
-            {{ item.description }}
-          </p>
+          <p class="history__text" v-html="item.description"></p>
         </div>
       </li>
     </ul>
@@ -146,4 +144,11 @@ export default {
   }
 }
 
+</style>
+
+<style scoped>
+  .history__text >>> a {
+    text-decoration: underline;
+    color: #2c3e50;
+  }
 </style>

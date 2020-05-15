@@ -8,12 +8,7 @@
         If you have any questions about my services, or just want to say hello, feel free to contact me.
       </p>
       <div class="contacts__links">
-        <a class="contacts__link"
-          v-for="item in contacts"
-          :key="item.icon"
-          :class="'contacts__link--' + item.icon"
-          :href="item.link"
-        ></a>
+        <a class="contacts__link" v-for="item in contacts" :key="item.icon" :class="'contacts__link--' + item.icon" :href="item.link"></a>
       </div>
       <div class="contacts__switch">
         <p>
@@ -22,7 +17,7 @@
         <custom-switch :is-checked="isColorMode" @click="$emit('switchChecked')" />
       </div>
     </div>
-    <div class="contacts__illustration  cat-in-box">
+    <div class="contacts__illustration  cat-in-box" :class="{ 'animation' : isCatAnimated }" @click="animateCat">
       <div class="box">
         <div class="box__front"></div>
         <div class="box__front-lit"></div>
@@ -72,10 +67,23 @@ export default {
       type: Array,
       required: true
     },
-
     isColorMode: {
       type: Boolean,
       required: true
+    }
+  },
+
+  data: () => ({
+    isCatAnimated: false
+  }),
+
+  methods: {
+    animateCat () {
+      this.isCatAnimated = !this.isCatAnimated;
+
+      setTimeout(() => {
+        this.isCatAnimated = !this.isCatAnimated;
+      }, 8000)
     }
   }
 }
@@ -85,7 +93,7 @@ export default {
 @import "../../less/variables.less";
 
 .contacts {
-  position:relative;
+  position: relative;
   
   @media @tablet {
     display: flex;
@@ -149,9 +157,10 @@ export default {
 
 .cat-in-box {
   position: absolute;
-  right: 0;
+  right: 50%;
   bottom: -4px;
-  width: 300px;
+  transform: translateX(75%);
+  width: 190px;
   height: 250px;
 
   @media @tablet {
@@ -179,7 +188,7 @@ export default {
     }
   }
 
-  &:hover {
+  &.animation {
     .cat,
     .cat__head,
     .cat__ear--left::after,
@@ -533,7 +542,7 @@ export default {
     bottom: 0px;
     right: 26px;
     z-index: -1;
-    width: 130px;
+    width: 150px;
     height: 20px;
     transform: skew(-45deg) rotate(180deg);
     border-top: 1px solid #353535;
@@ -542,6 +551,10 @@ export default {
     border-bottom-right-radius: 17px;
     border-top-right-radius: 10px;
     background-color: white;
+
+    @media @tablet {
+      width: 130px;
+    }
   }
 }
 
@@ -703,8 +716,8 @@ export default {
     height: 0;
   }
   93%, 100% {
-    transform: translate(0, 1px);
-    width: 13px;
+    transform: translate(0, 0);
+    width: 14px;
     height: 13px;
   }
 }
@@ -776,13 +789,37 @@ export default {
   0% {
     transform: skew(-45deg) rotate(180deg) translate(0, 0);
   }
-  2%, 85% {
-    transform: skew(-45deg) rotate(200deg) translate(40px, 21px);
+  2%, 37% {
+    transform: skew(-16deg) rotate(240deg) translate(100px, 55px);
   }
-  90%, 100% {
+  50% {
+    transform: skew(-16deg) rotate(270deg) translate(100px, 46px);
+  }
+  60% {
+    transform: skew(-16deg) rotate(240deg) translate(100px, 55px);
+  }
+  70% {
+    transform: skew(-16deg) rotate(270deg) translate(100px, 46px);
+  }
+  80%, 98% {
+    transform: skew(-16deg) rotate(240deg) translate(100px, 55px);
+  }
+  100% {
     transform: skew(-45deg) rotate(180deg) translate(0, 0);
   }
 }
+
+// @keyframes cat-tail-mobile {
+//   0% {
+//     transform: skew(-45deg) rotate(180deg) translate(0, 0);
+//   }
+//   2%, 85% {
+//     transform: skew(-16deg) rotate(240deg) translate(55px, 46px);
+//   }
+//   90%, 100% {
+//     transform: skew(-45deg) rotate(180deg) translate(0, 0);
+//   }
+// }
 
 // desktop animation
 

@@ -20,7 +20,8 @@
 
 <script>
 
-import photo from "./img/user.jpg";
+import userPhoto_1x from "./img/user@1x.jpg";
+import userPhoto_2x from "./img/user@2x.jpg";
 import sedona_1x from "./img/sedona@1x.jpg";
 import sedona_2x from "./img/sedona@2x.jpg";
 import resto_1x from "./img/resto@1x.jpg";
@@ -53,7 +54,10 @@ export default {
     user: {
       name: "Nadezhda Obidina",
       title: "Front - End Developer",
-      photo: photo,
+      photo: {
+        src: userPhoto_1x,
+        srcSet: userPhoto_2x
+      },
       greeting: "Hi! Nice to see you here!",
       about: "I'm a Front-End developer with experience in developing websites and Web applications using HTML, CSS (+ pre/postprocessors), JS, and the VueJS framework. I really enjoy making PSD, Figma, or whatever else templates alive by the power of these technologies. Especially HTML and CSS.",
       skills: [
@@ -124,7 +128,7 @@ export default {
         {
           date: "February 2018 - September 2019",
           title: "Frontend Developer | Domovenok",
-          description: "And finally fulltime ofice job. I was developing and supporting the https://www.domovenok.ru/ website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battle field. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products."
+          description: 'And finally fulltime ofice job. I was developing and supporting the <a href="https://www.domovenok.ru/" target="_blank">https://www.domovenok.ru/</a> website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battle field. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products.'
         },
         {
           date: "October 2018 - Present time",

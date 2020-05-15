@@ -2,7 +2,7 @@
   <div class="intro">
     <div class="intro__photo">
       <div class="intro__decore"></div>
-      <img class="intro__img" :src="photo" />
+      <img class="intro__img" :src="photo.src" :srcSet="photo.srcSet" />
       <div class="intro__decore  intro__decore--reverse"></div>
     </div>
     <div class="intro__heading">
@@ -19,7 +19,7 @@ export default {
 
   props: {
     photo: {
-      type: String,
+      type: Object,
       required: true
     },
     name: {
@@ -85,15 +85,15 @@ export default {
     margin-top: 6px;
     margin-bottom: 6px;
     border-radius: 50%;
-    border: 1px solid #353535;
+    border: 1px solid #81888F;
     box-shadow: 0 5px 0 0 white,
                 5px 0px 0 0 white,
                 -5px 0 0 0 white,
                 0 -5px 0 0 white, 
-                0 6px 0 0 #353535,
-                0 -6px 0 0 #353535, 
-                -6px 0 0 0 #353535,
-                6px 0 0 0 #353535;
+                0 6px 0 0 #81888F,
+                0 -6px 0 0 #81888F, 
+                -6px 0 0 0 #81888F,
+                6px 0 0 0 #81888F;
 
     @media @tablet {
       width: 330px;
@@ -138,7 +138,7 @@ export default {
     position: absolute;
     width: 30%;
     height: 2px;
-    border: 1px solid #353535;
+    border: 1px solid #81888F;
 
     @media @tablet {
       width: 250px;

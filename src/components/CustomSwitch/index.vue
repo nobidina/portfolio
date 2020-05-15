@@ -14,9 +14,7 @@ export default {
       type: Boolean,
       required: true
     }
-  },
-  
-  data: () => ({})
+  }
 }
 </script>
 
@@ -26,8 +24,8 @@ export default {
 .custom-switch {
   position: relative;
   flex-shrink: 0; 
-  width: 40px;
-  height: 25px;
+  width: 45px;
+  height: 26px;
   border-radius: 14px;
   border: 1px solid #353535;
 
@@ -35,8 +33,8 @@ export default {
     position: absolute;
     left: 2px;
     top: 1px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: 1px solid #353535;
     background-color: white;

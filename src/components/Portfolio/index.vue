@@ -73,14 +73,6 @@ export default {
     overflow: hidden;
     border-radius: 8px;
     border: 1px solid lightgrey;
-    // box-shadow: 0 2px 0 0 white,
-    //             2px 0 0 0 white,
-    //             -2px 0 0 0 white,
-    //             0 -2px 0 0 white, 
-    //             0 3px 0 0 #b1b1b1,
-    //             3px 0 0 0 #b1b1b1,
-    //             0 -3px 0 0 #b1b1b1,
-    //             -3px 0 0 0 #b1b1b1;
     line-height: 0;
     background-color: lightgrey;
   }
