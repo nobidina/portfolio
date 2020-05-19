@@ -8,8 +8,9 @@
     </p>
     <ul class="portfolio__list">
       <li class="portfolio__item" v-for="item in portfolio" :key="item.href">
-        <a class="portfolio__link-block" :href="item.href">
-          <img class="portfolio__img" :src="item.imgSrc" :srcset="item.imgSrcset" :alt="item.alt">
+        <a class="portfolio__link-block" :href="item.href" target="_blank">
+          <img v-if="!isColorMode" class="portfolio__img" :src="item.imgSrc" :srcset="item.imgSrcset" :alt="item.alt">
+          <img v-else class="portfolio__img" :src="item.imgSrcColor" :srcset="item.imgSrcsetColor" :alt="item.alt">
         </a>
       </li>
     </ul>
@@ -34,6 +35,10 @@ export default {
     portfolio: {
       type: Array,
       required: true
+    },
+    isColorMode: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -117,6 +122,8 @@ export default {
   }
 
   &__link-block {
+    transition: transform .3s;
+    transition-timing-function: ease;
     display: block;
     max-width: 300px;
     overflow: hidden;
@@ -127,6 +134,12 @@ export default {
 
     @media @tablet {
       max-width: 100%;
+    }
+
+    &:hover {
+      @media @tablet {
+        transform: scale(1.07);
+      }
     }
   }
 

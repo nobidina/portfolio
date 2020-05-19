@@ -1,8 +1,9 @@
 <template>
-  <div class="intro">
+  <div class="intro" :class="{ 'intro--color': isColorMode }">
     <div class="intro__photo">
       <div class="intro__decore"></div>
-      <img class="intro__img" :src="photo.src" :srcSet="photo.srcSet" />
+      <img v-if="!isColorMode" class="intro__img" :src="photo.src" :srcSet="photo.srcSet" />
+      <img v-else class="intro__img" :src="photo.srcColor" :srcSet="photo.srcSetColor" />
       <div class="intro__decore  intro__decore--reverse"></div>
     </div>
     <div class="intro__heading">
@@ -29,6 +30,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    isColorMode: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -42,7 +47,7 @@ export default {
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  margin-bottom: 31px;
+  margin-bottom: 30px;
 
   @media @tablet {
     margin-bottom: 0;  
@@ -69,7 +74,7 @@ export default {
     line-height: 1em;
     font-weight: 400;
 
-    @media @desktop {
+    @media @tablet {
       margin-bottom: 30px;  
     }
   }
@@ -125,6 +130,7 @@ export default {
     width: 30%;
     height: 2px;
     border: 1px solid #81888F;
+    background-color: @white;
 
     @media @tablet {
       width: 65%;
@@ -147,7 +153,7 @@ export default {
 
     @media @desktop {
       top: 90px;
-      left: -23px;
+      left: -16px;
       width: 270px;
     }
   }
@@ -163,8 +169,8 @@ export default {
     }
 
     @media @desktop {
-      top: 163px;
-      left: 35px;
+      top: 150px;
+      left: 45px;
       width: 250px;
     }
   }
@@ -182,7 +188,7 @@ export default {
     }
 
     @media @desktop {
-      left: -250px;   
+      left: -270px;   
     }
 
     &--reverse {
@@ -194,17 +200,13 @@ export default {
       }
 
       @media @desktop {
-        left: 330px;
+        left: 350px;
       }
     }
 
     &--reverse::before {
       left: -4px;
       transform: rotate(18deg);
-
-      @media @desktop {
-        left: 0;
-      }
     }
 
     &--reverse::after {
@@ -212,7 +214,7 @@ export default {
       transform: rotate(30deg);
 
       @media @desktop {
-        left: -34px;
+        left: -45px;
       }
     }
   }
@@ -221,6 +223,26 @@ export default {
     width: 100%;
     height: auto;
     border-radius: 50%;
+  }
+
+  &--color {
+    & .intro__photo {
+      border: 1px solid @grey;
+      box-shadow: 0 5px 0 0 white,
+                  5px 0px 0 0 white,
+                  -5px 0 0 0 white,
+                  0 -5px 0 0 white, 
+                  0 6px 0 0 @grey,
+                  0 -6px 0 0 @grey, 
+                  -6px 0 0 0 @grey,
+                  6px 0 0 0 @grey;
+    }
+
+    & .intro__decore, 
+    & .intro__decore::before,
+    & .intro__decore::after {
+      border: 1px solid @grey;
+    }
   }
 }
 

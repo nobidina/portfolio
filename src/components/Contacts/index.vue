@@ -1,31 +1,33 @@
 <template>
-  <div class="contacts">
+  <div class="contacts" :class="{ 'contacts--color': isColorMode }">
     <div class="contacts__inner">
       <section-title>
         Contacts
       </section-title>
-      <p class="contacts__text">
-        If you have any questions about my services, or just want to say hello, feel free to contact me.
-      </p>
-      <div class="contacts__links">
-        <a class="contacts__link" v-for="item in contacts" :key="item.icon" :class="'contacts__link--' + item.icon" :href="item.link"></a>
-      </div>
-      <div class="contacts__switch">
-        <p>
-          By the way if you prefer more colorful interfaces you can click here.
+      <div class="contacts__links-wrapper">
+        <p class="contacts__text">
+          If you have any questions about my services, or just want to say hello, feel free to contact me.
         </p>
-        <custom-switch :is-checked="isColorMode" @click="$emit('switchChecked')" />
+        <div class="contacts__links">
+          <a class="contacts__link" target="_blank" v-for="item in contacts" :key="item.icon" :class="'contacts__link--' + item.icon" :href="item.link"></a>
+        </div>
+      </div>
+      <div class="contacts__switch-wrapper">
+        <p>
+          By the way if you prefer <template v-if="!isColorMode">more</template> <template v-else>less</template> colorful interfaces you can click here.
+        </p>
+        <custom-switch class="contacts__switch" :is-color-mode="isColorMode" :is-checked="isColorMode" @click="$emit('switchChecked')" />
       </div>
     </div>
     <div class="contacts__illustration  cat-in-box" :class="{ 'animation' : isCatAnimated }" @click="animateCat">
-      <div class="box">
+      <div class="box" :class="{ 'box--color': isColorMode }">
         <div class="box__front"></div>
         <div class="box__front-lit"></div>
         <div class="box__side  box__side--right"></div>
         <div class="box__side  box__side--left"></div>
         <div class="box__side-lit"></div>
         <div class="box__back"></div>
-        <div class="cat">
+        <div class="cat" :class="{ 'cat--color': isColorMode }">
           <div class="cat__head">
             <div class="cat__face"></div>
             <div class="cat__ear  cat__ear--left"></div>
@@ -100,7 +102,7 @@ export default {
   }
 
   &__inner {
-    padding-bottom: 220px;
+    padding-bottom: 240px;
 
     @media @tablet {
       padding-bottom: 270px;
@@ -116,17 +118,40 @@ export default {
   &__text {
     margin-bottom: 30px;
 
+    @media @tablet {
+      margin-bottom: 0;
+    }
+
     @media @desktop {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__links-wrapper {
+    @media @tablet {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    @media @desktop {
+      display: block;
       margin-bottom: 35px;
     }
   }
 
   &__links {
     display: flex;
-    justify-content: center;
     margin-bottom: 30px;
 
+    @media @tablet {
+      margin-left: 25px;
+      margin-bottom: 0;
+    }
+
     @media @desktop {
+      justify-content: center;
+      margin-left: 0;
       margin-bottom: 35px;
     }
   }
@@ -141,8 +166,14 @@ export default {
     background-size: contain;
 
     @media @tablet {
+      transition: transform .3s;
+      transition-timing-function: ease;
       width: 45px;
       height: 40px;
+      margin-right: 15px;
+    }
+
+    @media @desktop {
       margin-right: 20px;
     }
 
@@ -165,11 +196,41 @@ export default {
     &--github {
       background-image: url("./img/github.svg");
     }
+
+    &:hover {
+      @media @tablet {
+        transform: scale(1.07);
+      }
+    }
+  }
+
+  &__switch-wrapper {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__switch {
-    display: flex;
-    justify-content: space-between;
+    margin-left: 25px;
+  }
+
+  &--color {
+    & .contacts__link {
+      &--facebook {
+        background-image: url("./img/facebook-color.svg");
+      }
+
+      &--instagram {
+        background-image: url("./img/instagram-color.svg");
+      }
+
+      &--linked-in {
+        background-image: url("./img/linked-in-color.svg");
+      }
+      
+      &--github {
+        background-image: url("./img/github-color.svg");
+      }
+    }
   }
 }
 
@@ -182,7 +243,8 @@ export default {
   height: 250px;
 
   @media @desktop {
-    right: 34%;
+    right: 50%;
+    transform: translateX(120%);
     bottom: -94px;
     width: 400px;
     height: 300px;
@@ -323,6 +385,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media @tablet {
+    cursor: pointer;
+  }
   
   &__head {
     position: relative;
@@ -340,8 +406,8 @@ export default {
     bottom: 0;
     z-index: 2;
     border-radius: 30px;
-    border: 1px solid #353535;
-    background-color: white;
+    border: 1px solid @black;
+    background-color: @white;
   }
 
   &__ear {
@@ -350,8 +416,8 @@ export default {
     z-index: 1;
     width: 40px;
     height: 25px;
-    border: 1px solid #353535;
-    background-color: white;
+    border: 1px solid @black;
+    background-color: @white;
 
     &::after {
       content: "";
@@ -361,8 +427,8 @@ export default {
       z-index: 1;
       width: 40px;
       height: 25px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
     }
 
     &--left {
@@ -391,8 +457,8 @@ export default {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 1px solid #353535;
-    background-color: white;
+    border: 1px solid @black;
+    background-color: @white;
 
     &::after {
       content: "";
@@ -403,7 +469,7 @@ export default {
       width: 14px;
       height: 13px;
       border-radius: 50%;
-      background-color: #353535;
+      background-color: @black;
 
       @media @desktop {
         height: 12px;
@@ -427,7 +493,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-    border-top: 7px solid #353535;
+    border-top: 7px solid @black;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
 
@@ -440,7 +506,7 @@ export default {
       z-index: 3;
       width: 1px;
       height: 7px;
-      background-color: #353535;
+      background-color: @black;
     }
 
     &::after {
@@ -451,7 +517,7 @@ export default {
       z-index: 3;
       width: 10px;
       height: 1px;
-      background-color: #353535;
+      background-color: @black;
     }
   }
 
@@ -461,7 +527,7 @@ export default {
     z-index: 3;
     width: 45px;
     height: 1px;
-    background-color: lightgray;
+    background-color: @grey;
 
     &::after,
     &::before {
@@ -471,7 +537,7 @@ export default {
       z-index: 3;
       width: 45px;
       height: 1px;
-      background-color: lightgray;
+      background-color: @grey;
     }
 
     &::before {
@@ -516,8 +582,8 @@ export default {
     border-top-left-radius: 70px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    border: 1px solid #353535;
-    background-color: white;
+    border: 1px solid @black;
+    background-color: @white;
 
   }
 
@@ -527,12 +593,12 @@ export default {
     z-index: 3;
     width: 16px;
     height: 70px;
-    border-right: 1px solid #353535;
-    border-bottom: 1px solid #353535;
-    border-left: 1px solid #353535;
+    border-right: 1px solid @black;
+    border-bottom: 1px solid @black;
+    border-left: 1px solid @black;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    background-color: white;
+    background-color: @white;
 
     &--left {
       left: 20px;
@@ -549,10 +615,10 @@ export default {
     z-index: 2;
     width: 20px;
     height: 16px;
-    border: 1px solid #353535;
+    border: 1px solid @black;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background-color: white;
+    background-color: @white;
 
     &--left {
       left: 0;
@@ -571,22 +637,86 @@ export default {
     width: 150px;
     height: 20px;
     transform: skew(-45deg) rotate(180deg);
-    border-top: 1px solid #353535;
-    border-right: 1px solid #353535;
-    border-bottom: 1px solid #353535;
+    border-top: 1px solid @black;
+    border-right: 1px solid @black;
+    border-bottom: 1px solid @black;
     border-bottom-right-radius: 17px;
     border-top-right-radius: 10px;
-    background-color: white;
+    background-color: @white;
 
-    @media @tablet {
+    @media @desktop {
       right: -80px;
       transform: skew(-45deg) rotate(0);
       width: 130px;
     }
   }
+
+  &--color {
+    & .cat__face {
+      border-color: @orange;
+      background-color: @orange;
+      box-shadow: -1px 0 0px 0px @white,
+                  1px 0 0px 0px @white;
+    }
+
+    & .cat__ear {
+      background-color: @orange;
+      border-color: @orange;
+      box-shadow: -1px 0 0px 0px @white,
+                  1px 0 0px 0px @white;
+
+      &::after {
+        border-color: @orange;
+      }
+    }
+
+    & .cat__eye {
+      border-color: @black;
+
+      &::after {
+         background-color: @black;
+      }
+    }
+
+    & .cat__whisker {
+      background-color: @white;
+
+      &::after,
+      &::before {
+        background-color: @white;
+      }
+    }
+
+    & .cat__body {
+      border-color: @orange;
+      background-color: @orange;
+      box-shadow: -1px 0 0px 0px @white,
+                  1px 0 0px 0px @white;
+    }
+
+    & .cat__front-paw {
+      border-color: @white;
+      background-color: @orange;
+    }
+
+    & .cat__back-paw {
+      border-color: @white;
+      background-color: @orange;
+    }
+
+    & .cat__tail {
+      border-color: @white;
+      background-color: @orange;
+      
+    }
+  }
 }
 
 .box {
+  @media @tablet {
+    cursor: pointer;
+  }
+
   @media @desktop {
     width: 210px;
     height: 180px;
@@ -601,8 +731,29 @@ export default {
       z-index: 2;
       width: 210px;
       height: 180px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
+    }
+
+    &::after {
+      @media @desktop {
+        content: "CSS CAT";
+        position: absolute;
+        bottom: 23px;
+        right: 15px;
+        transform: rotate(-25deg);
+        box-sizing: border-box;
+        width: 73px;
+        height: 32px;
+        padding: 10px;
+        border: 1px solid @black;
+        border-radius: 5px;
+        text-align: right;
+        font-weight: 600;
+        font-size: 0.7em;
+        line-height: 0.8em;
+        color: @black;
+      }
     }
   }
 
@@ -615,8 +766,8 @@ export default {
       z-index: 3;
       width: 210px;
       height: 30px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
     }
   }
 
@@ -627,8 +778,8 @@ export default {
       transform: skewX(-32deg) rotate(-32deg);
       width: 40px;
       height: 212px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
 
       &--left {
         z-index: 1;
@@ -651,8 +802,8 @@ export default {
       z-index: 3;
       width: 67px;
       height: 26px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
     }
   }
 
@@ -664,8 +815,52 @@ export default {
       z-index: 1;
       width: 210px;
       height: 180px;
-      border: 1px solid #353535;
-      background-color: white;
+      border: 1px solid @black;
+      background-color: @white;
+    }
+  }
+
+  &--color {
+    & .box__front {
+      @media @desktop {
+        border-color: @grey;
+        background-color: @brown;
+      }
+
+      &::after {
+        @media @desktop {
+          border-color: @grey;
+          color: @grey;
+        }
+      }
+    }
+
+    & .box__front-lit {
+      @media @desktop {
+        border-color: @grey;
+        background-color: @brown;
+      }
+    }
+
+    & .box__side {
+      @media @desktop {
+        border-color: @grey;
+        background-color: @brown;
+      }
+    }
+
+    & .box__side-lit {
+      @media @desktop {
+        border-color: @grey;
+        background-color: @brown;
+      }
+    }
+
+    & .box__back {
+      @media @desktop {
+        border-color: @grey;
+        background-color: @brown;
+      }
     }
   }
 }
@@ -1338,17 +1533,17 @@ export default {
   67.5% {
     transform: translate(4px, -5px) rotate(-14deg);
     height: 45px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   68.125% {
     transform: translate(2px, -5px) rotate(-19deg);
     height: 45px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   68.75% {
     transform: translate(-2px, -5px) rotate(-24deg);
     height: 45px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   69.375% {
     transform: translate(-5px, -5px) rotate(-29deg);
@@ -1456,7 +1651,7 @@ export default {
     transform: translate(0, 0) rotate(0deg);
     height: 16px;
     width: 20px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
@@ -1488,22 +1683,22 @@ export default {
   67.5% {
     transform: translate(-10px, -5px) rotate(-10deg);
     height: 45px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   68.125% {
     transform: translate(-14px, -7px) rotate(-16deg);
     height: 56px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   68.75% {
     transform: translate(-19px, -10px) rotate(-22deg);
     height: 67px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   69.375% {
     transform: translate(-23px, -12px) rotate(-28deg);
     height: 68px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
   }
   70% {
     transform: translate(-28px, -15px) rotate(-35deg);
@@ -1607,7 +1802,7 @@ export default {
     transform: translate(0, 0) rotate(0deg);
     height: 16px;
     width: 20px;
-    border-bottom: 1px solid #353535;
+    border-bottom: 1px solid @white;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }

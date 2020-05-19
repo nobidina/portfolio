@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-switch" :class="{ 'custom-switch--active': isChecked }" @click="$emit('click')">
+  <div class="custom-switch" :class="{ 'custom-switch--active': isChecked,  'custom-switch--color': isColorMode }" @click="$emit('click')">
     <div class="custom-switch__control"></div>
   </div>
 </template>
@@ -11,6 +11,10 @@ export default {
 
   props: {
     isChecked: {
+      type: Boolean,
+      required: true
+    },
+    isColorMode: {
       type: Boolean,
       required: true
     }
@@ -29,6 +33,10 @@ export default {
   border-radius: 14px;
   border: 1px solid #353535;
 
+  @media @tablet {
+    cursor: pointer;
+  }
+
   &__control {
     position: absolute;
     left: 2px;
@@ -36,15 +44,24 @@ export default {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    border: 1px solid #353535;
-    background-color: white;
+    border: 1px solid @black;
   }
 
   &--active {
    & .custom-switch__control {
      left: auto;
      right: 2px;
-   } 
+    } 
+  }
+
+  &--color {
+    border-color: @blue;
+    background-color: @blue;
+
+    & .custom-switch__control {
+      border-color: @blue;
+      background-color: @white;
+    }
   }
 }
 

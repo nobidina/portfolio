@@ -1,5 +1,5 @@
 <template>
-  <div class="history">
+  <div class="history" :class="{ 'history--color': isColorMode }">
     <section-title>
       How I spend last decade
     </section-title>
@@ -61,6 +61,10 @@ export default {
     history: {
       type: Array,
       required: true
+    },
+    isColorMode: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -87,9 +91,12 @@ export default {
     width: 33px;
     margin-right: 10px;
 
+    @media @tablet {
+      margin-right: 15px;
+    }
+
     @media @desktop {
       width: 43px;
-      margin-right: 15px;
     }
 
     svg {
@@ -146,6 +153,20 @@ export default {
       order: 0;
       margin-bottom: 20px;
       font-size: 1.17em;
+    }
+  }
+
+  &--color {
+    & .history__icon svg g { 
+      polygon {
+        stroke: @orange;
+        fill: @orange;
+      }
+
+      line {
+        stroke: @orange;
+        fill: @orange;
+      }
     }
   }
 }

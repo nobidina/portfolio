@@ -1,5 +1,5 @@
 <template>
-  <div class="skills">
+  <div class="skills" :class="{ 'skills--color': isColorMode }">
     <div class="skills__text-wrapper">
       <section-title>
         {{ title }}
@@ -42,6 +42,10 @@ export default {
     skills: {
       type: Array,
       required: true,
+    },
+    isColorMode: {
+      type: Boolean,
+      required: true
     }
   }
 }
@@ -81,7 +85,7 @@ export default {
 
     &:hover {
       .skills__scale-fill {
-        animation: fill 2s;
+        animation: fill 2s ease;
       }
     }
   }
@@ -115,8 +119,6 @@ export default {
   }
 
   &__scale {
-    animation: trembling 1s;
-    animation-iteration-count: infinite;
     overflow: hidden;
     box-sizing: border-box;
     width: calc(100% - 55px);
@@ -124,6 +126,11 @@ export default {
     margin-right: 10px;
     border-radius: 10px;
     border: 1px solid #353535;
+
+    @media @tablet {
+      width: calc(100% - 60px);
+      margin-right: 15px;
+    }
 
     @media @desktop {
       min-width: 260px;
@@ -144,6 +151,17 @@ export default {
     width: 45px;
     text-align: right;
     font-weight: 600;
+  }
+
+  &--color {
+    & .skills__scale {
+      border-color: @grey;
+    }
+
+    & .skills__scale-fill {
+      border-color: @blue;
+      background-color: @blue;
+    }
   }
 }
 

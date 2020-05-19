@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <custom-section>
-      <intro :name="user.name" :title="user.title" :photo="user.photo" />
+  <div class="home" :class="{ 'home--color': isColorMode }">
+    <custom-section :is-color-mode="isColorMode">
+      <intro :name="user.name" :title="user.title" :photo="user.photo" :is-color-mode="isColorMode" />
     </custom-section>
-    <custom-section>
-      <skills :title="user.greeting" :text="user.about" :skills="user.skills" />
+    <custom-section :is-color-mode="isColorMode">
+      <skills :title="user.greeting" :text="user.about" :skills="user.skills" :is-color-mode="isColorMode" />
     </custom-section>
-    <custom-section>
-      <history :history="user.history" />
+    <custom-section :is-color-mode="isColorMode">
+      <history :history="user.history" :is-color-mode="isColorMode" />
     </custom-section>
-    <custom-section>
-      <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" />
+    <custom-section :is-color-mode="isColorMode">
+      <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" :is-color-mode="isColorMode" />
     </custom-section>
-    <custom-section>
+    <custom-section :is-color-mode="isColorMode">
       <contacts :contacts="user.contacts" :is-color-mode="isColorMode" @switchChecked="switchColorMode" />
     </custom-section>
   </div>
@@ -26,12 +26,20 @@ import userPhotoColor_1x from "./img/user-color@1x.jpg";
 import userPhotoColor_2x from "./img/user-color@2x.jpg";
 import sedona_1x from "./img/sedona@1x.jpg";
 import sedona_2x from "./img/sedona@2x.jpg";
+import sedonaColor_1x from "./img/sedona-color@1x.jpg";
+import sedonaColor_2x from "./img/sedona-color@2x.jpg";
 import resto_1x from "./img/resto@1x.jpg";
 import resto_2x from "./img/resto@2x.jpg";
+import restoColor_1x from "./img/resto-color@1x.jpg";
+import restoColor_2x from "./img/resto-color@2x.jpg";
 import organic_1x from "./img/organic@1x.jpg";
 import organic_2x from "./img/organic@2x.jpg";
+import organicColor_1x from "./img/organic-color@1x.jpg";
+import organicColor_2x from "./img/organic-color@2x.jpg";
 import mishka_1x from "./img/mishka@1x.jpg";
 import mishka_2x from "./img/mishka@2x.jpg";
+import mishkaColor_1x from "./img/mishka-color@1x.jpg";
+import mishkaColor_2x from "./img/mishka-color@2x.jpg";
 
 import Contacts from '@/components/Contacts';
 import CustomSection from '@/components/CustomSection';
@@ -145,24 +153,32 @@ export default {
           href: "https://nobidina.github.io/160298-sedona/",
           imgSrc: sedona_1x,
           imgSrcset: sedona_2x,
+          imgSrcColor: sedonaColor_1x,
+          imgSrcsetColor: sedonaColor_2x,
           alt: "city website"
         },
         {
           href: "https://nobidina.github.io/resto/",
           imgSrc: resto_1x,
           imgSrcset: resto_2x,
+          imgSrcColor: restoColor_1x,
+          imgSrcsetColor: restoColor_2x,
           alt: "restaurant website"
         },
         {
           href: "https://nobidina.github.io/organic/",
           imgSrc: organic_1x,
           imgSrcset: organic_2x,
+          imgSrcColor: organicColor_1x,
+          imgSrcsetColor: organicColor_2x,
           alt: "company website"
         },
         {
           href: "https://nobidina.github.io/mishka.html",
           imgSrc: mishka_1x,
           imgSrcset: mishka_2x,
+          imgSrcColor: mishkaColor_1x,
+          imgSrcsetColor: mishkaColor_2x,
           alt: "online shop"
         }
       ],
@@ -217,7 +233,7 @@ export default {
     padding-right: 40px;
     padding-bottom: 40px;
     border-radius: 15px;
-    box-shadow: 0px 5px 50px lightgrey;
+    box-shadow: 0px 5px 20px lightgrey;
   }
 
   @media @desktop {
@@ -227,6 +243,12 @@ export default {
     padding-left: 90px;
     padding-right: 90px;
     padding-bottom: 90px;
+    box-shadow: 0px 5px 50px lightgrey;
+  }
+
+  &--color {
+    color: black;
+    background-color: white;
   }
 }
 

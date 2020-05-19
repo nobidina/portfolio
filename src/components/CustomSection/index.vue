@@ -1,5 +1,5 @@
 <template>
-  <section class="custom-section" :class="{ 'custom-section--color':  isColor }">
+  <section class="custom-section" :class="{ 'custom-section--color':  isColorMode }">
     <div class="custom-section__inner">
       <slot />
     </div>
@@ -12,13 +12,11 @@ export default {
   name: 'CustomSection',
 
   props: {
-    isColor: {
+    isColorMode: {
       type: Boolean,
       default: false
     }
-  },
-  
-  data: () => ({})
+  }
 }
 </script>
 
@@ -187,7 +185,61 @@ export default {
   }
 
   &--color {
-    
+    & .custom-section__inner {
+      background-color: white;
+    }
+
+    &:nth-child(even) {
+      &::before {
+        border-top: 1px solid @grey;
+        border-bottom: 1px solid @grey;
+        border-right: 1px solid @grey;
+        box-shadow: 0 2px 0 0 white,
+                    0 -2px 0 0 white,
+                    2px 0 0 0 white,
+                    0 3px 0 0 @grey,
+                    0 -3px 0 0 @grey,
+                    3px 0 0 0 @grey;
+      }
+    }
+
+    &:nth-child(odd) {
+      &::before{
+        border-top: 1px solid @grey;
+        border-bottom: 1px solid @grey;
+        border-left: 1px solid @grey;
+        box-shadow: 0 2px 0 0 white,
+                    -2px 0 0 0 white,
+                    0 -2px 0 0 white, 
+                    0 3px 0 0 @grey,
+                    0 -3px 0 0 @grey,
+                    -3px 0 0 0 @grey;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: white;
+
+      &::after {
+        border-bottom: 1px solid @grey;
+        border-left: 1px solid @grey;
+        box-shadow: 0 2px 0 0 white,
+                    -2px 0 0 0 white,
+                    -1px 3px 0 0 @grey, 
+                    -3px 1px 0 0 @grey;
+        background-color: white;
+      }
+
+      & .custom-section__inner::after {
+        background-color: white;
+      }
+    }
+
+    &:last-of-type {
+      &::after{
+        background-image: url("./img/ball-color.svg");
+      }
+    }
   }
 }
 
