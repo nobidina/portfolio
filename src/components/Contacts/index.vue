@@ -56,6 +56,8 @@
 import SectionTitle from '@/components/SectionTitle';
 import CustomSwitch from '@/components/CustomSwitch';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'Contacts',
 
@@ -68,16 +70,18 @@ export default {
     contacts: {
       type: Array,
       required: true
-    },
-    isColorMode: {
-      type: Boolean,
-      required: true
     }
   },
 
   data: () => ({
     isCatAnimated: false
   }),
+  
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
+  },
 
   methods: {
     animateCat () {
@@ -824,7 +828,7 @@ export default {
     & .box__front {
       @media @desktop {
         border-color: @grey;
-        background-color: @brown;
+        background-color: @white-grey;
       }
 
       &::after {
@@ -838,28 +842,28 @@ export default {
     & .box__front-lit {
       @media @desktop {
         border-color: @grey;
-        background-color: @brown;
+        background-color: @white-grey;
       }
     }
 
     & .box__side {
       @media @desktop {
         border-color: @grey;
-        background-color: @brown;
+        background-color: @white-grey;
       }
     }
 
     & .box__side-lit {
       @media @desktop {
         border-color: @grey;
-        background-color: @brown;
+        background-color: @white-grey;
       }
     }
 
     & .box__back {
       @media @desktop {
         border-color: @grey;
-        background-color: @brown;
+        background-color: @white-grey;
       }
     }
   }

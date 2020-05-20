@@ -20,6 +20,8 @@
 <script>
 import SectionTitle from '@/components/SectionTitle';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'Portfolio',
 
@@ -35,11 +37,13 @@ export default {
     portfolio: {
       type: Array,
       required: true
-    },
-    isColorMode: {
-      type: Boolean,
-      default: false
     }
+  },
+
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>
@@ -118,7 +122,7 @@ export default {
 
   &__link {
     text-decoration: underline;
-    color: #353535;
+    color: @black;
   }
 
   &__link-block {
@@ -128,9 +132,9 @@ export default {
     max-width: 300px;
     overflow: hidden;
     border-radius: 8px;
-    border: 1px solid lightgrey;
+    border: 1px solid @lightgrey;
     line-height: 0;
-    background-color: lightgrey;
+    background-color: @lightgrey;
 
     @media @tablet {
       max-width: 100%;

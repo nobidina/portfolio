@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'Intro',
@@ -30,11 +31,13 @@ export default {
     title: {
       type: String,
       required: true
-    },
-    isColorMode: {
-      type: Boolean,
-      default: false
     }
+  },
+
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>
@@ -92,15 +95,15 @@ export default {
     height: 171px;
     margin: 6px;
     border-radius: 50%;
-    border: 1px solid #81888F;
+    border: 1px solid @lightslategrey;
     box-shadow: 0 5px 0 0 white,
                 5px 0px 0 0 white,
                 -5px 0 0 0 white,
                 0 -5px 0 0 white, 
-                0 6px 0 0 #81888F,
-                0 -6px 0 0 #81888F, 
-                -6px 0 0 0 #81888F,
-                6px 0 0 0 #81888F;
+                0 6px 0 0 @lightslategrey,
+                0 -6px 0 0 @lightslategrey, 
+                -6px 0 0 0 @lightslategrey,
+                6px 0 0 0 @lightslategrey;
 
     @media @tablet {
       width: 255px;
@@ -129,7 +132,7 @@ export default {
     position: absolute;
     width: 30%;
     height: 2px;
-    border: 1px solid #81888F;
+    border: 1px solid @lightslategrey;
     background-color: @white;
 
     @media @tablet {

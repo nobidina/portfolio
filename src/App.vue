@@ -22,7 +22,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 1.5em;
-  color: @font-color-main;
+  color: @font-color;
 
   @media @tablet {
     font-size: 18px;

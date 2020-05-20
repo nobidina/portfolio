@@ -23,6 +23,8 @@
 <script>
 import SectionTitle from '@/components/SectionTitle';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'Skills',
 
@@ -42,11 +44,13 @@ export default {
     skills: {
       type: Array,
       required: true,
-    },
-    isColorMode: {
-      type: Boolean,
-      required: true
     }
+  },
+
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>
@@ -125,7 +129,7 @@ export default {
     height: 14px;
     margin-right: 10px;
     border-radius: 10px;
-    border: 1px solid #353535;
+    border: 1px solid @black;
 
     @media @tablet {
       width: calc(100% - 60px);
@@ -141,8 +145,8 @@ export default {
   &__scale-fill {
     height: 12px;
     border-radius: 10px;
-    border-right: 1px solid #353535;
-    background: white;
+    border-right: 1px solid @black;
+    background: @white;
     background-size: contain;
   }
 

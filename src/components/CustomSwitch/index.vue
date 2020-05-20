@@ -6,6 +6,8 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'CustomSwitch',
 
@@ -13,11 +15,13 @@ export default {
     isChecked: {
       type: Boolean,
       required: true
-    },
-    isColorMode: {
-      type: Boolean,
-      required: true
     }
+  },
+
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>
@@ -31,7 +35,7 @@ export default {
   width: 45px;
   height: 26px;
   border-radius: 14px;
-  border: 1px solid #353535;
+  border: 1px solid @black;
 
   @media @tablet {
     cursor: pointer;
@@ -45,6 +49,7 @@ export default {
     height: 22px;
     border-radius: 50%;
     border: 1px solid @black;
+    background-color: @white;
   }
 
   &--active {

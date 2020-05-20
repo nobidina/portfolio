@@ -1,19 +1,19 @@
 <template>
   <div class="home" :class="{ 'home--color': isColorMode }">
-    <custom-section :is-color-mode="isColorMode">
-      <intro :name="user.name" :title="user.title" :photo="user.photo" :is-color-mode="isColorMode" />
+    <custom-section>
+      <intro :name="user.name" :title="user.title" :photo="user.photo" />
     </custom-section>
-    <custom-section :is-color-mode="isColorMode">
-      <skills :title="user.greeting" :text="user.about" :skills="user.skills" :is-color-mode="isColorMode" />
+    <custom-section>
+      <skills :title="user.greeting" :text="user.about" :skills="user.skills" />
     </custom-section>
-    <custom-section :is-color-mode="isColorMode">
-      <history :history="user.history" :is-color-mode="isColorMode" />
+    <custom-section>
+      <history :history="user.history" />
     </custom-section>
-    <custom-section :is-color-mode="isColorMode">
-      <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" :is-color-mode="isColorMode" />
+    <custom-section>
+      <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" />
     </custom-section>
-    <custom-section :is-color-mode="isColorMode">
-      <contacts :contacts="user.contacts" :is-color-mode="isColorMode" @switchChecked="switchColorMode" />
+    <custom-section>
+      <contacts :contacts="user.contacts" @switchChecked="switchColorMode" />
     </custom-section>
   </div>
 </template>
@@ -47,6 +47,9 @@ import Intro from '@/components/Intro';
 import History from '@/components/History';
 import Portfolio from '@/components/Portfolio';
 import Skills from '@/components/Skills';
+
+import { mapState, mapMutations } from 'vuex';
+import types from '@/store/types';
 
 export default {
   name: 'Home',
@@ -204,14 +207,19 @@ export default {
           icon: "instagram"
         }
       ]
-    },
-    isColorMode: true
+    }
   }),
 
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
+  },
+
   methods: {
-    switchColorMode () {
-      this.isColorMode = !this.isColorMode;
-    }
+    ...mapMutations ({
+      switchColorMode: types.SET_COLOR_MODE
+    })
   }
 }
 
@@ -224,7 +232,7 @@ export default {
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 40px;
-  background-color: whitesmoke;
+  background-color: @whitesmoke;
 
   @media @tablet {
     min-height: calc(100% - 40px);
@@ -233,7 +241,7 @@ export default {
     padding-right: 40px;
     padding-bottom: 40px;
     border-radius: 15px;
-    box-shadow: 0px 5px 20px lightgrey;
+    box-shadow: 0px 5px 20px @lightgrey;
   }
 
   @media @desktop {
@@ -243,12 +251,12 @@ export default {
     padding-left: 90px;
     padding-right: 90px;
     padding-bottom: 90px;
-    box-shadow: 0px 5px 50px lightgrey;
+    box-shadow: 0px 5px 50px @lightgrey;
   }
 
   &--color {
-    color: black;
-    background-color: white;
+    color: @font-color-mode;
+    background-color: @white;
   }
 }
 

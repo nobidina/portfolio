@@ -50,6 +50,8 @@
 <script>
 import SectionTitle from '@/components/SectionTitle';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'History',
   
@@ -61,11 +63,13 @@ export default {
     history: {
       type: Array,
       required: true
-    },
-    isColorMode: {
-      type: Boolean,
-      default: false
     }
+  },
+
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>

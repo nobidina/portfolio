@@ -8,14 +8,15 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'CustomSection',
 
-  props: {
-    isColorMode: {
-      type: Boolean,
-      default: false
-    }
+  computed: {
+    ...mapState({
+      isColorMode: state => state.isColorMode
+    })
   }
 }
 </script>
@@ -38,7 +39,7 @@ export default {
     padding-top: 40px;
     padding-bottom: 40px;
     border-radius: 30px;
-    background-color: whitesmoke;
+    background-color: @whitesmoke;
 
     @media @tablet {
       padding-top: 50px;
@@ -74,18 +75,18 @@ export default {
 
     &::before {
       right: -1px;
-      border-top: 1px solid #b1b1b1;
-      border-bottom: 1px solid #b1b1b1;
-      border-right: 1px solid #b1b1b1;
-      border-left: 1px solid whitesmoke;
+      border-top: 1px solid @grey;
+      border-bottom: 1px solid @grey;
+      border-right: 1px solid @grey;
+      border-left: 1px solid @whitesmoke;
       border-top-right-radius: inherit;
       border-bottom-right-radius: inherit;
-      box-shadow: 0 2px 0 0 white,
-                  0 -2px 0 0 white,
-                  2px 0 0 0 white,
-                  0 3px 0 0 #b1b1b1,
-                  0 -3px 0 0 #b1b1b1,
-                  3px 0 0 0 #b1b1b1;
+      box-shadow: 0 2px 0 0 @white,
+                  0 -2px 0 0 @white,
+                  2px 0 0 0 @white,
+                  0 3px 0 0 @grey,
+                  0 -3px 0 0 @grey,
+                  3px 0 0 0 @grey;
     }
   }
 
@@ -102,17 +103,17 @@ export default {
 
     &::before{
       left: -1px;
-      border-top: 1px solid #b1b1b1;
-      border-bottom: 1px solid #b1b1b1;
-      border-left: 1px solid #b1b1b1;
+      border-top: 1px solid @grey;
+      border-bottom: 1px solid @grey;
+      border-left: 1px solid @grey;
       border-top-left-radius: inherit;
       border-bottom-left-radius: inherit;
-      box-shadow: 0 2px 0 0 white,
-                  -2px 0 0 0 white,
-                  0 -2px 0 0 white, 
-                  0 3px 0 0 #b1b1b1,
-                  0 -3px 0 0 #b1b1b1,
-                  -3px 0 0 0 #b1b1b1;
+      box-shadow: 0 2px 0 0 @white,
+                  -2px 0 0 0 @white,
+                  0 -2px 0 0 @white, 
+                  0 3px 0 0 @grey,
+                  0 -3px 0 0 @grey,
+                  -3px 0 0 0 @grey;
     }
   }
 
@@ -143,13 +144,13 @@ export default {
       left: 50%;
       width: 40px;
       height: 40px;
-      border-bottom: 1px solid #81888F;
-      border-left: 1px solid #81888F;
+      border-bottom: 1px solid @lightslategrey;
+      border-left: 1px solid @lightslategrey;
       border-bottom-left-radius: inherit;
-      box-shadow: 0 2px 0 0 white,
-                  -2px 0 0 0 white,
-                  -1px 3px 0 0 #81888F, 
-                  -3px 1px 0 0 #81888F;
+      box-shadow: 0 2px 0 0 @white,
+                  -2px 0 0 0 @white,
+                  -1px 3px 0 0 @lightslategrey, 
+                  -3px 1px 0 0 @lightslategrey;
     }
 
     & .custom-section__inner::after {
@@ -159,7 +160,7 @@ export default {
       left: calc(50% - 10px);
       width: 40px;
       height: 40px;
-      background-color: whitesmoke;
+      background-color: @whitesmoke;
 
       @media @tablet {
         left: 50%;
@@ -186,7 +187,7 @@ export default {
 
   &--color {
     & .custom-section__inner {
-      background-color: white;
+      background-color: @white;
     }
 
     &:nth-child(even) {
@@ -194,9 +195,9 @@ export default {
         border-top: 1px solid @grey;
         border-bottom: 1px solid @grey;
         border-right: 1px solid @grey;
-        box-shadow: 0 2px 0 0 white,
-                    0 -2px 0 0 white,
-                    2px 0 0 0 white,
+        box-shadow: 0 2px 0 0 @white,
+                    0 -2px 0 0 @white,
+                    2px 0 0 0 @white,
                     0 3px 0 0 @grey,
                     0 -3px 0 0 @grey,
                     3px 0 0 0 @grey;
@@ -208,9 +209,9 @@ export default {
         border-top: 1px solid @grey;
         border-bottom: 1px solid @grey;
         border-left: 1px solid @grey;
-        box-shadow: 0 2px 0 0 white,
-                    -2px 0 0 0 white,
-                    0 -2px 0 0 white, 
+        box-shadow: 0 2px 0 0 @white,
+                    -2px 0 0 0 @white,
+                    0 -2px 0 0 @white, 
                     0 3px 0 0 @grey,
                     0 -3px 0 0 @grey,
                     -3px 0 0 0 @grey;
@@ -218,20 +219,20 @@ export default {
     }
 
     &:nth-child(2) {
-      background-color: white;
+      background-color: @white;
 
       &::after {
         border-bottom: 1px solid @grey;
         border-left: 1px solid @grey;
-        box-shadow: 0 2px 0 0 white,
-                    -2px 0 0 0 white,
+        box-shadow: 0 2px 0 0 @white,
+                    -2px 0 0 0 @white,
                     -1px 3px 0 0 @grey, 
                     -3px 1px 0 0 @grey;
-        background-color: white;
+        background-color: @white;
       }
 
       & .custom-section__inner::after {
-        background-color: white;
+        background-color: @white;
       }
     }
 
