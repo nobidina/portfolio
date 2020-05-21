@@ -19,7 +19,7 @@
         <custom-switch class="contacts__switch" :is-color-mode="isColorMode" :is-checked="isColorMode" @click="$emit('switchChecked')" />
       </div>
     </div>
-    <div class="contacts__illustration  cat-in-box" :class="{ 'animation' : isCatAnimated }" @click="animateCat">
+    <div class="contacts__illustration  cat-in-box" :class="{ 'animation' : isCatAnimated && isDesktop, 'animation-mobile': isCatAnimatedMobile && !isDesktop }" @click="animateCat">
       <div class="box" :class="{ 'box--color': isColorMode }">
         <div class="box__front"></div>
         <div class="box__front-lit"></div>
@@ -74,22 +74,35 @@ export default {
   },
 
   data: () => ({
-    isCatAnimated: false
+    isCatAnimated: false,
+    isCatAnimatedMobile: false
   }),
   
   computed: {
     ...mapState({
-      isColorMode: state => state.isColorMode
+      isColorMode: state => state.isColorMode,
+      isDesktop: state => state.isDesktop
     })
   },
 
   methods: {
     animateCat () {
-      this.isCatAnimated = !this.isCatAnimated;
+      if (this.isDesktop) {
+        this.isCatAnimatedMobile = false;
 
-      setTimeout(() => {
-        this.isCatAnimated = !this.isCatAnimated;
-      }, 12000)
+        if (this.isCatAnimated) {
+          return;
+        }
+        this.isCatAnimated = true;
+
+      } else {
+        this.isCatAnimated = false;
+
+        this.isCatAnimatedMobile = !this.isCatAnimatedMobile;
+        setTimeout(() => {
+          this.isCatAnimatedMobile = !this.isCatAnimatedMobile;
+        }, 8000)
+      }
     }
   }
 }
@@ -245,6 +258,8 @@ export default {
   transform: translateX(75%);
   width: 190px;
   height: 250px;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(200,0,0,0);
 
   @media @desktop {
     right: 50%;
@@ -274,7 +289,7 @@ export default {
     }
   }
 
-  &.animation {
+  &.animation-mobile {
     .cat,
     .cat__head,
     .cat__ear--left::after,
@@ -294,70 +309,114 @@ export default {
 
     .cat {
       animation-name: cat-mobile;
+    }
 
+    .cat__head {
+      animation-name: cat-head-mobile;
+    }
+
+    .cat__ear--left::after {
+      animation-name: cat-left-ear-mobile;
+    }
+
+    .cat__ear--right::after {
+      animation-name: cat-right-ear-mobile;
+    }
+
+    .cat__eye::after {
+      animation-name: cat-eyes-after-mobile;
+    }
+
+    .cat__eye {
+      animation-name: cat-eyes-mobile;
+    }
+
+    .cat__nose {
+      animation-name: cat-nose-mobile;
+    }
+
+    .cat__front-paw--left {
+      animation-name: cat-front-left-pow-mobile;
+    }
+
+    .cat__front-paw--right {
+      animation-name: cat-front-right-pow-mobile;
+    }
+
+    .cat__tail {
+      animation-name: cat-tail-mobile;
+    }
+  }
+
+  &.animation {
+    .cat,
+    .cat__head,
+    .cat__ear--left::after,
+    .cat__ear--right::after,
+    .cat__eye,
+    .cat__eye::after,
+    .cat__nose,
+    .cat__front-paw--left,
+    .cat__front-paw--right,
+    .cat__back-paw--left,
+    .cat__back-paw--right,
+    .cat__tail {
+      @media @desktop {
+        animation-duration: 10s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+    }
+
+    .cat {
       @media @desktop {
         animation-name: cat;
       }
     }
 
     .cat__head {
-      animation-name: cat-head-mobile;
-
       @media @desktop {
        animation-name: cat-head; 
       }
     }
 
     .cat__ear--left::after {
-      animation-name: cat-left-ear-mobile;
-
       @media @desktop {
         animation-name: cat-left-ear;
       }
     }
 
     .cat__ear--right::after {
-      animation-name: cat-right-ear-mobile;
-
       @media @desktop {
         animation-name: cat-right-ear;
       }
     }
 
     .cat__eye::after {
-      animation-name: cat-eyes-after-mobile;
-
       @media @desktop {
         animation-name: cat-eyes-after;
       }
     }
 
     .cat__eye {
-      animation-name: cat-eyes-mobile;
-
       @media @desktop {
         animation-name: cat-eyes;
       }
     }
 
     .cat__nose {
-      animation-name: cat-nose-mobile;
       @media @desktop {
         animation-name: cat-nose;
       }
     }
 
     .cat__front-paw--left {
-      animation-name: cat-front-left-pow-mobile;
-
       @media @desktop {
         animation-name: cat-front-left-pow;
       }
     }
 
     .cat__front-paw--right {
-      animation-name: cat-front-right-pow-mobile;
-
       @media @desktop {
         animation-name: cat-front-right-pow;
       }
@@ -376,8 +435,6 @@ export default {
     }
 
     .cat__tail {
-      animation-name: cat-tail-mobile;
-
       @media @desktop {
         animation-name: cat-tail;
       }

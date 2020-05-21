@@ -36,6 +36,8 @@ export default {
   height: 26px;
   border-radius: 14px;
   border: 1px solid @black;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(200,0,0,0);
 
   @media @tablet {
     cursor: pointer;
