@@ -1,17 +1,39 @@
 <template>
   <section class="custom-section" :class="{ 'custom-section--color':  isColorMode }">
-    <div class="custom-section__inner">
+    <div class="custom-section__inner" :class="{ 'custom-section__inner--cartoon-wrapper': cartoon }">
       <slot />
+      <cat class="custom-section__cat" v-if="cartoon === 'cat'" :animation="catAnimation" />
+      <cat-in-box class="custom-section__cat-in-box" v-if="cartoon === 'cat-in-box'" />
     </div>
   </section>
 </template>
 
 <script>
 
+import Cat from '@/components/cartoons/Cat';
+import CatInBox from '@/components/cartoons/CatInBox';
+
 import { mapState } from 'vuex';
 
 export default {
   name: 'CustomSection',
+
+  components: {
+    Cat,
+    CatInBox
+  },
+
+  props: {
+    // available animation 'cat' or 'cat-in-box'
+    cartoon: {
+      type: String,
+      default: ""
+    }
+  },
+
+  data: () => ({
+    catAnimation: 'ball'
+  }),
 
   computed: {
     ...mapState({
@@ -50,6 +72,20 @@ export default {
     @media @desktop {
       padding-top: 90px;
       padding-bottom: 90px;
+    }
+
+    &--cartoon-wrapper {
+      position: relative;
+      padding-bottom: 280px;
+
+      @media @tablet {
+        padding-bottom: 320px;
+      }
+
+      @media @desktop {
+        padding-bottom: 90px;
+        padding-right: 60%;
+      }
     }
   }
 
@@ -241,6 +277,21 @@ export default {
         background-image: url("./img/ball-color.svg");
       }
     }
+  }
+
+  &__cat {
+    position: absolute;
+    right: calc(50% - 150px);
+    bottom: 49px;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(200,0,0,0);
+  }
+
+  &__cat-in-box {
+    position: absolute;
+    right: 50%;
+    bottom: -2px;
+    transform: translateX(123%);
   }
 }
 

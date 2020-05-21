@@ -12,7 +12,7 @@
     <custom-section>
       <portfolio :portfolio="user.portfolio" :link="user.portfolioLink" />
     </custom-section>
-    <custom-section>
+    <custom-section :cartoon="cartoon" >
       <contacts :contacts="user.contacts" @switchChecked="switchColorMode" />
     </custom-section>
   </div>
@@ -212,8 +212,14 @@ export default {
 
   computed: {
     ...mapState({
-      isColorMode: state => state.isColorMode
-    })
+      isColorMode: state => state.isColorMode,
+      isDesktop: state => state.isDesktop
+    }),
+    cartoon () {
+      if (this.isDesktop) {
+        return 'cat-in-box'
+      } return 'cat'
+    }
   },
 
   methods: {
