@@ -1,10 +1,10 @@
 <template>
   <div class="intro" :class="{ 'intro--color': isColorMode }">
     <div class="intro__photo">
-      <div class="intro__decore"></div>
+      <div class="intro__decor"></div>
       <img v-if="!isColorMode" class="intro__img" :src="photo.src" :srcSet="photo.srcSet" />
       <img v-else class="intro__img" :src="photo.srcColor" :srcSet="photo.srcSetColor" />
-      <div class="intro__decore  intro__decore--reverse"></div>
+      <div class="intro__decor  intro__decor--reverse"></div>
     </div>
     <div class="intro__heading">
       <h1 class="intro__title">{{ name }}</h1>
@@ -121,14 +121,14 @@ export default {
     }
   }
 
-  &__decore::before,
-  &__decore::after {
+  &__decor::before,
+  &__decor::after {
     content: "";
   }
 
-  &__decore, 
-  &__decore::before,
-  &__decore::after {
+  &__decor, 
+  &__decor::before,
+  &__decor::after {
     position: absolute;
     width: 30%;
     height: 2px;
@@ -144,7 +144,7 @@ export default {
     }
   }
 
-  &__decore::before {
+  &__decor::before {
     top: 25px;
     left: 5px;
     transform: rotate(-18deg);
@@ -161,7 +161,7 @@ export default {
     }
   }
 
-  &__decore::after {
+  &__decor::after {
     top: 51px;
     left: 21px;
     transform: rotate(-30deg);
@@ -178,7 +178,7 @@ export default {
     }
   }
 
-  &__decore {
+  &__decor {
     animation: trembling 0.4s;
     animation-iteration-count: infinite;
     top: 50px;
@@ -241,9 +241,9 @@ export default {
                   6px 0 0 0 @grey;
     }
 
-    & .intro__decore, 
-    & .intro__decore::before,
-    & .intro__decore::after {
+    & .intro__decor, 
+    & .intro__decor::before,
+    & .intro__decor::after {
       border: 1px solid @grey;
     }
   }

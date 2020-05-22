@@ -8,6 +8,7 @@
       }"
     @click="animateBallCat"
     >
+    <div class="cat__decor"></div>
     <div class="cat__head">
       <div class="cat__face"></div>
       <div class="cat__ear  cat__ear--left"></div>
@@ -26,6 +27,7 @@
       <div class="cat__back-paw  cat__back-paw--right"></div>
       <div class="cat__tail"></div>
     </div>
+    <div class="cat__decor cat__decor--bottom"></div>
   </div>
 </template>
 
@@ -348,7 +350,69 @@ export default {
     }
   }
 
+  &__decor {
+    position: absolute;
+    top: 107px;
+    left: 172px;
+    border-bottom: 140px solid #d3d3d3;
+    border-right: 7px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 0px solid transparent;
+    transform: rotate(-55deg) scale(0);
+    z-index: -3;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      border-bottom: 130px solid #b1b1b1;
+      border-right: 10px solid transparent;
+      border-left: 7px solid transparent;
+      border-top: 0px solid transparent;
+    }
+
+    &::after {
+      transform: rotate(-60deg);
+      left: 86px;
+      top: -20px;
+      border-bottom: 100px solid #b1b1b1;
+      border-bottom-color: #81888f;
+    }
+
+    &::before {
+      left: 50px;
+      transform: rotate(-30deg);
+      border-bottom: 150px solid #b1b1b1;
+      border-left: 10px solid transparent;
+    }
+
+    &--bottom {
+      transform: rotate(140deg) scale(0);
+      top: auto;
+      left: -50px;
+      bottom: 78px;
+
+      &::after {
+        transform: rotate(-66deg);
+        left: 67px;
+        top: -38px;
+      }
+    }
+  }
+
   &--color {
+    & .cat__decor {
+      border-bottom-color: @blue;
+
+      &::after {
+        border-bottom-color: @blue;
+      } 
+
+      &::before {
+        border-bottom-color: @blue;
+      } 
+    }
+
     & .cat__face {
       border-color: @orange;
       background-color: @orange;
@@ -474,74 +538,90 @@ export default {
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
 
-    .cat__head,
-    .cat__ear--left::after,
-    .cat__ear--right::after,
-    .cat__eye,
-    .cat__eye::after,
-    .cat__nose,
-    .cat__front-paw--left,
-    .cat__front-paw--right,
-    .cat__back-paw--left,
-    .cat__back-paw--right,
-    .cat__tail {
+    & .cat__head,
+    & .cat__ear--left::after,
+    & .cat__ear--right::after,
+    & .cat__eye,
+    & .cat__eye::after,
+    & .cat__nose,
+    & .cat__front-paw--left,
+    & .cat__front-paw--right,
+    & .cat__back-paw--left,
+    & .cat__back-paw--right,
+    & .cat__tail,
+    & .cat__decor,
+    & .cat__decor--bottom {
       animation-duration: 10s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in-out;
     }
 
-    .cat__head {
+    & .cat__decor {
+      animation-name: box-cat-decor-top;
+    }
+
+    & .cat__decor--bottom {
+      animation-name: box-cat-decor-bottom;
+    }
+
+    & .cat__head {
       animation-name: box-cat-head;
     }
 
-    .cat__ear--left::after {
+    & .cat__ear--left::after {
       animation-name: box-cat-left-ear;
     }
 
-    .cat__ear--right::after {
+    & .cat__ear--right::after {
       animation-name: box-cat-right-ear;
     }
 
-    .cat__eye::after {
+    & .cat__eye::after {
       animation-name: box-cat-eyes-after;
     }
 
-    .cat__eye {
+    & .cat__eye {
       animation-name: box-cat-eyes;
     }
 
-    .cat__nose {
+    & .cat__nose {
       animation-name: box-cat-nose;
     }
 
-    .cat__front-paw--left {
+    & .cat__front-paw--left {
       animation-name: box-cat-front-left-pow;
     }
 
-    .cat__front-paw--right {
+    & .cat__front-paw--right {
       animation-name: box-cat-front-right-pow;
     }
 
-    .cat__back-paw--left {
+    & .cat__back-paw--left {
       animation-name: box-cat-back-left-pow;
     }
 
-    .cat__back-paw--right {
+    & .cat__back-paw--right {
       animation-name: box-cat-back-right-pow;
     }
 
-    .cat__tail {
+    & .cat__tail {
       animation-name: box-cat-tail;
     }
-  }
 
-  &.cat--color {
+    &.cat--color {
     .cat__back-paw--left {
+      animation-duration: 10s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
       animation-name: box-cat-back-left-pow-color;
     }
     .cat__back-paw--right {
+      animation-duration: 10s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
       animation-name: box-cat-back-right-pow-color;
     }
+  }
   }
 
 // ball
@@ -732,32 +812,104 @@ export default {
   }
 }
 
+@keyframes box-cat-decor-top {
+  0%, 56.25% {
+    transform: rotate(-55deg) scale(0) translate(0, 0);
+  }
+  57%, 57,5% {
+    transform: rotate(-55deg) scale(1) translate(-1px, -1px);
+  }
+  58%, 58,5% {
+    transform: rotate(-55deg) scale(1) translate(1px, 1px);
+  }
+  60%, 60.5% {
+    transform: rotate(-55deg) scale(1) translate(-1px, -1px);
+  }
+  61%, 61.5% {
+    transform: rotate(-55deg) scale(1) translate(1px, 1px);
+  }
+  62%, 62.5% {
+    transform: rotate(-55deg) scale(1) translate(-1px, -1px);
+  }
+  63%, 63.5% {
+    transform: rotate(-55deg) scale(1) translate(1px, 1px);
+  }
+  64%, 64.5% {
+    transform: rotate(-55deg) scale(1) translate(-1px, -1px);
+  }
+  65%, 65.5% {
+    transform: rotate(-55deg) scale(1) translate(1px, 1px);
+  }
+  66%, 66.1% {
+    transform: rotate(-55deg) scale(1) translate(-1px, -1px);
+  }
+  66.25%, 100% {
+    transform: rotate(-55deg) scale(0) translate(0, 0);
+  }
+}
+
+@keyframes box-cat-decor-bottom {
+  0%, 56.25% {
+    transform: rotate(140deg) scale(0) translate(0, 0);
+  }
+  57%, 57,5% {
+    transform: rotate(140deg) scale(1) translate(-1px, -1px);
+  }
+  58%, 58,5% {
+    transform: rotate(140deg) scale(1) translate(1px, 1px);
+  }
+  60%, 60.5% {
+    transform: rotate(140deg) scale(1) translate(-1px, -1px);
+  }
+  61%, 61.5% {
+    transform: rotate(140deg) scale(1) translate(1px, 1px);
+  }
+  62%, 62.5% {
+    transform: rotate(140deg) scale(1) translate(-1px, -1px);
+  }
+  63%, 63.5% {
+    transform: rotate(140deg) scale(1) translate(1px, 1px);
+  }
+  64%, 64.5% {
+    transform: rotate(140deg) scale(1) translate(-1px, -1px);
+  }
+  65%, 65.5% {
+    transform: rotate(140deg) scale(1) translate(1px, 1px);
+  }
+  66%, 66.1% {
+    transform: rotate(140deg) scale(1) translate(-1px, -1px);
+  }
+  66.25%, 100% {
+    transform: rotate(140deg) scale(0) translate(0, 0);
+  }
+}
+
 @keyframes box-cat {
   0%, 5% {
     transform: translate(50%, 0);
   }
-  25%, 50% {
+  15%, 40% {
     transform: translate(50%, -31px);
   }
-  53%, 57% {
+  43%, 47% {
     transform: translate(50%, -21px);
   }
-  60% {
+  50% {
     transform: translate(50%, -41px);
   }
-  65% {
+  55% {
     transform: translate(50%, -120px) rotate(-50deg);
     transform-origin: bottom left;
   }
-  65.625% {
+  55.625% {
     transform: translate(40%, -132px) rotate(-57deg);
     transform-origin: bottom left;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: translate(30%, -145px) rotate(-65deg);
     transform-origin: bottom left;
   } 
-  66.875 {
+  66.875% {
     transform: translate(20%, -157px) rotate(-72deg);
     transform-origin: bottom left;
   }
@@ -828,8 +980,11 @@ export default {
 }
 
 @keyframes box-cat-head {
-  0%, 68% {
+  0%, 50% {
     transform: none;
+  }
+  56.25%, 66.25% {
+    transform: rotate(65deg) translate(50px, -30px);
   }
   75%, 85% {
     transform: rotate(65deg) translate(50px, -30px);
@@ -851,6 +1006,29 @@ export default {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes box-cat-eyes-after {
+  0%, 18% {
+    transform: translate(0, 0);
+    width: 14px;
+    height: 12px;
+  }
+  28%, 92% {
+    transform: translate(-1px, -1px);
+    width: 12px;
+    height: 14px;
+  }
+  98% {
+    transform: translate(2px, 1px);
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    transform: translate(0, 0);
+    width: 14px;
+    height: 12px;
   }
 }
 
@@ -878,52 +1056,29 @@ export default {
   }
 }
 
-@keyframes box-cat-eyes-after {
-  0%, 28% {
-    transform: translate(0, 0);
-    width: 14px;
-    height: 12px;
-  }
-  38%, 97% {
-    transform: translate(-1px, -1px);
-    width: 12px;
-    height: 14px;
-  }
-  98% {
-    transform: translate(2px, 1px);
-    width: 12px;
-    height: 12px;
-  }
-  100% {
-    transform: translate(0, 0);
-    width: 14px;
-    height: 12px;
-  }
-}
-
 @keyframes box-cat-front-left-pow {
-  0%, 40% {
+  0%, 30% {
     transform: rotate(180deg) translate(10px, 0);
   }
-  45%, 50% {
+  35%, 40% {
     transform: rotate(180deg) translate(10px, 83px);
   }
-  53%, 57% {
+  43%, 47% {
     transform: rotate(180deg) translate(10px, 93px);
   }
-  60% {
+  50% {
     transform: rotate(180deg) translate(10px, 73px);
     height: 70px;
   }
-  65% {
+  55% {
     transform: rotate(170deg) translate(0, 93px);
     height: 90px;
   }
-  65.625% {
+  55.625% {
     transform: rotate(167deg) translate(-2px, 93px);
     height: 90px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: rotate(165deg) translate(-5px, 93px);
     height: 90px;
   }
@@ -1012,28 +1167,28 @@ export default {
 }
 
 @keyframes box-cat-front-right-pow {
-  0%, 39% {
+  0%, 29% {
     transform: rotate(180deg) translate(-10px, 0);
   }
-  43%, 50% {
+  33%, 40% {
     transform: rotate(180deg) translate(-10px, 83px);
   }
-  53%, 57% {
+  43%, 47% {
     transform: rotate(180deg) translate(-10px, 93px);
   }
-  60% {
+  50% {
     transform: rotate(180deg) translate(-10px, 73px);
     height: 70px;
   }
-  65% {
+  55% {
     transform: rotate(170deg) translate(-16px, 93px);
     height: 90px;
   }
-  65.625% {
+  55.625% {
     transform: rotate(167deg) translate(-18px, 93px);
     height: 90px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: rotate(165deg) translate(-21px, 93px);
     height: 90px;
   }
@@ -1115,19 +1270,19 @@ export default {
   0% {
     transform: none;
   }
-  65% {
+  55% {
     transform: translate(4px, -5px);
     height: 35px;
   }
-  65.625% {
+  55.625% {
     transform: translate(4px, -5px) rotate(-3.5deg);
     height: 37px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: translate(4px, -5px) rotate(-7deg);
     height: 40px;
   }
-  66.875 {
+  66.875% {
     transform: translate(4px, -5px) rotate(-10deg);
     height: 42px;
   }
@@ -1246,19 +1401,19 @@ export default {
   0% {
     transform: none;
   }
-  65% {
+  55% {
     transform: translate(-4px, -5px);
     height: 35px;
   }
-  65.625% {
+  55.625% {
     transform: translate(-5px, -5px) rotate(-3.5deg);
     height: 37px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: translate(-7px, -5px) rotate(-7deg);
     height: 40px;
   }
-  66.875 {
+  66.875% {
     transform: translate(-8px, -5px) rotate(-8deg);
     height: 42px;
   }
@@ -1378,19 +1533,19 @@ export default {
   0% {
     transform: none;
   }
-  65% {
+  55% {
     transform: translate(4px, -5px);
     height: 35px;
   }
-  65.625% {
+  55.625% {
     transform: translate(4px, -5px) rotate(-3.5deg);
     height: 37px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: translate(4px, -5px) rotate(-7deg);
     height: 40px;
   }
-  66.875 {
+  66.875% {
     transform: translate(4px, -5px) rotate(-10deg);
     height: 42px;
   }
@@ -1443,7 +1598,7 @@ export default {
     width: 17px;
     border-bottom: none;
   }
-  73.125%{
+  73.125% {
     transform: translate(-29px, 8px) rotate(-75deg);
     height: 85px;
     width: 17px;
@@ -1509,19 +1664,19 @@ export default {
   0% {
     transform: none;
   }
-  65% {
+  55% {
     transform: translate(-4px, -5px);
     height: 35px;
   }
-  65.625% {
+  55.625% {
     transform: translate(-5px, -5px) rotate(-3.5deg);
     height: 37px;
   }
-  66.25% {
+  56.25%, 66.25% {
     transform: translate(-7px, -5px) rotate(-7deg);
     height: 40px;
   }
-  66.875 {
+  66.875% {
     transform: translate(-8px, -5px) rotate(-8deg);
     height: 42px;
   }
@@ -1575,7 +1730,7 @@ export default {
     width: 17px;
     border-bottom: none;
   }
-  73.125%{
+  73.125% {
     transform: translate(-63px, 11px) rotate(-75deg);
     height: 85px;
     width: 17px;
@@ -1638,13 +1793,13 @@ export default {
 }
 
 @keyframes box-cat-tail {
-  0%, 60% {
+  0%, 50% {
     transform: skew(-45deg);
   }
-  65%, 70% {
+  55% {
     transform: skew(-45deg) rotate(47deg) translate(40px, 35px);
   }
-  75%, 98% {
+  56.25%, 98% {
     transform: skew(-45deg) rotate(0deg) translate(0, 0);
   }
   100% {
