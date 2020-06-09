@@ -15,7 +15,6 @@ html, body {
 }
 
 #app {
-  height: 100%;
   min-height: 100%;
   font-family: @font-family-main;
   -webkit-font-smoothing: antialiased;
@@ -25,7 +24,12 @@ html, body {
   color: @font-color;
 
   @media @tablet {
+    padding-bottom: 20px;
     font-size: 18px;
+  }
+
+  @media @desktop {
+    padding-bottom: 50px;
   }
 }
 </style>

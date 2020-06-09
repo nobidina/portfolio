@@ -51,15 +51,15 @@ export default {
       right: 15px;
       transform: rotate(-25deg);
       box-sizing: border-box;
-      width: 73px;
-      height: 32px;
+      max-width: 85px;
+      max-height: 85px;
       padding: 10px;
       border: 1px solid @black;
       border-radius: 5px;
       text-align: right;
       font-weight: 600;
       font-size: 0.7em;
-      line-height: 0.8em;
+      line-height: 1em;
       color: @black;
     }
   }

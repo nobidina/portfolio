@@ -242,7 +242,7 @@ export default {
 
   @media @tablet {
     min-height: calc(100% - 40px);
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 40px;
@@ -253,7 +253,7 @@ export default {
   @media @desktop {
     min-height: calc(100% - 100px);
     max-width: 77%;
-    margin: 50px auto;
+    margin: 50px auto 0 auto;
     padding-left: 90px;
     padding-right: 90px;
     padding-bottom: 90px;

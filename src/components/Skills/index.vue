@@ -123,6 +123,7 @@ export default {
   }
 
   &__scale {
+    z-index: 2;
     overflow: hidden;
     box-sizing: border-box;
     width: calc(100% - 55px);
@@ -132,7 +133,7 @@ export default {
     border: 1px solid @black;
 
     @media @tablet {
-      width: calc(100% - 60px);
+      width: calc(100% - 65px);
       margin-right: 15px;
     }
 
@@ -143,6 +144,7 @@ export default {
   }
 
   &__scale-fill {
+    z-index: 1;
     height: 12px;
     border-radius: 10px;
     border-right: 1px solid @black;
@@ -155,6 +157,10 @@ export default {
     width: 45px;
     text-align: right;
     font-weight: 600;
+
+    @media @tablet {
+      width: 50px;
+    }
   }
 
   &--color {
