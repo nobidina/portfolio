@@ -416,15 +416,15 @@ export default {
     & .cat__face {
       border-color: @orange;
       background-color: @orange;
-      box-shadow: -1px 0 0px 0px @white,
-                  1px 0 0px 0px @white;
+      box-shadow: -1px 0 0px 0px @lightorange,
+                  1px 0 0px 0px @lightorange;
     }
 
     & .cat__ear {
       background-color: @orange;
       border-color: @orange;
-      box-shadow: -1px 0 0px 0px @white,
-                  1px 0 0px 0px @white;
+      box-shadow: -1px 0 0px 0px @lightorange,
+                  1px 0 0px 0px @lightorange;
 
       &::after {
         border-color: @orange;
@@ -440,33 +440,33 @@ export default {
     }
 
     & .cat__whisker {
-      background-color: @white;
+      background-color: @grey;
 
       &::after,
       &::before {
-        background-color: @white;
+        background-color: @grey;
       }
     }
 
     & .cat__body {
       border-color: @orange;
       background-color: @orange;
-      box-shadow: -1px 0 0px 0px @white,
-                  1px 0 0px 0px @white;
+      box-shadow: -1px 0 0px 0px @lightorange,
+                  1px 0 0px 0px @lightorange;
     }
 
     & .cat__front-paw {
-      border-color: @white;
+      border-color: @lightorange;
       background-color: @orange;
     }
 
     & .cat__back-paw {
-      border-color: @white;
+      border-color: @lightorange;
       background-color: @orange;
     }
 
     & .cat__tail {
-      border-color: @white;
+      border-color: @lightorange;
       background-color: @orange;
       
     }
