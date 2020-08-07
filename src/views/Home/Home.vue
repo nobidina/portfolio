@@ -187,7 +187,7 @@ export default {
       ],
       portfolioLink: {
         text: "github page",
-        href: "https://nobidina.github.io/"
+        href: "https://github.com/nobidina"
       },
       contacts: [
         {
