@@ -126,7 +126,7 @@ export default {
   }
 
   &__link-block {
-    transition: transform .3s;
+    transition: transform .1s;
     transition-timing-function: ease;
     display: block;
     max-width: 300px;

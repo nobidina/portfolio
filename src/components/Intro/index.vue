@@ -116,8 +116,7 @@ export default {
     }
 
     & + .intro__heading .intro__title {
-      animation: scale 1s step-start;
-      animation-iteration-count: infinite;
+      animation: scale 1s step-start infinite;
     }
   }
 

@@ -89,7 +89,8 @@ export default {
 
     &:hover {
       .skills__scale-fill {
-        animation: fill 2s ease;
+        animation: tremble 1s step-start infinite;
+        // animation: fill 2s .4s ease;
       }
     }
   }
@@ -178,6 +179,24 @@ export default {
 @keyframes fill {
   0% {
     transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tremble {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-2px);
   }
   100% {
     transform: translateX(0);

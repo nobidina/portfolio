@@ -45,7 +45,8 @@ export default {
 
   &__control {
     position: absolute;
-    left: 2px;
+    transform: translateX(2px);
+    transition: transform 0.1s ease;
     top: 1px;
     width: 22px;
     height: 22px;
@@ -57,7 +58,7 @@ export default {
   &--active {
    & .custom-switch__control {
      left: auto;
-     right: 2px;
+     transform: translateX(20px);
     } 
   }
 

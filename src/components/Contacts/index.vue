@@ -104,8 +104,7 @@ export default {
     background-size: contain;
 
     @media @tablet {
-      transition: transform .3s;
-      transition-timing-function: ease;
+      transition: transform .1s ease;
       width: 45px;
       height: 40px;
       margin-right: 15px;
