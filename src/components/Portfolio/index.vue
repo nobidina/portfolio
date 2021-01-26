@@ -69,7 +69,6 @@ export default {
     @media @tablet {
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: flex-start;
     }
   }
@@ -84,7 +83,7 @@ export default {
 
     @media @desktop {
       width: 30%;
-      margin-right: 3%;
+      margin-right: 5%;
     }
 
     &:nth-child(2n + 2) {
@@ -93,7 +92,7 @@ export default {
       }
 
       @media @desktop {
-        margin-right: 3%;
+        margin-right: 5%;
       }
     }
 

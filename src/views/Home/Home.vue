@@ -40,6 +40,10 @@ import mishka_1x from "./img/mishka@1x.jpg";
 import mishka_2x from "./img/mishka@2x.jpg";
 import mishkaColor_1x from "./img/mishka-color@1x.jpg";
 import mishkaColor_2x from "./img/mishka-color@2x.jpg";
+import blog_1x from "./img/blog@1x.jpg";
+import blog_2x from "./img/blog@2x.jpg";
+import blogColor_1x from "./img/blog-color@1x.jpg";
+import blogColor_2x from "./img/blog-color@2x.jpg";
 
 import Contacts from '@/components/Contacts';
 import CustomSection from '@/components/CustomSection';
@@ -159,6 +163,14 @@ export default {
           imgSrcColor: sedonaColor_1x,
           imgSrcsetColor: sedonaColor_2x,
           alt: "city website"
+        },
+        {
+          href: "#",
+          imgSrc: blog_1x,
+          imgSrcset: blog_2x,
+          imgSrcColor: blogColor_1x,
+          imgSrcsetColor: blogColor_2x,
+          alt: "personal blog"
         },
         {
           href: "https://nobidina.github.io/resto/",
