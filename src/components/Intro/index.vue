@@ -69,7 +69,6 @@ export default {
   }
 
   &__title {
-    transition: transform 1s ease-in-out;
     margin-bottom: 25px;
     font-family: @font-family-pencil;
     text-align: center;
@@ -115,7 +114,8 @@ export default {
       height: 313px;
     }
 
-    & + .intro__heading .intro__title {
+    & + .intro__heading .intro__title,
+    & + .intro__heading .intro__subtitle{
       animation: scale 1s step-start infinite;
     }
   }
