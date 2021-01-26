@@ -137,7 +137,7 @@ export default {
         {
           date: "September 2017 - February 2018",
           title: "Frontend Developer | Self-employed",
-          description: "After some home practice I finally found a real job on this fild. It was frilance. I've made HTML & CSS from PSD for clients."
+          description: "After some home practice I finally found a real job in this field. It was freelance. I've made HTML & CSS from PSD for clients."
         },
         {
           date: "October 2017 - December 2017",
@@ -147,12 +147,12 @@ export default {
         {
           date: "February 2018 - September 2019",
           title: "Frontend Developer | Domovenok",
-          description: `And finally fulltime ofice job. I was developing and supporting the <a href="https://www.domovenok.ru/" target="_blank">domovenok.ru</a> website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battle field. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products.`
+          description: `And finally full time office job. I was developing and supporting the <a href="https://www.domovenok.ru/" target="_blank">domovenok.ru</a> website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battlefield. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products.`
         },
         {
           date: "October 2019 - Present time",
           title: "Relocate time",
-          description: "My husband got a job in London and we relocate here from Moscow. So I was busy organazed this. When the relocate was complete. I took a brake to exhale, improve my professional skills and my level of English. Now I think I ready to get new wonderfull job and do it as good as I can."
+          description: "My husband got a job in London and we relocate here from Moscow. So I was busy organized this. When the relocation was complete. I took a break to exhale, improve my professional skills and my level of English. Now I think I ready to get a new wonderful job and do it as well as I can."
         }
       ],
       portfolio: [
