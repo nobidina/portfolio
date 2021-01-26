@@ -4,7 +4,7 @@
       Portfolio
     </section-title>
     <p class="portfolio__text">
-      Here is some examples of my previous work. For more you can visit my <a class="portfolio__link" :href="link.href">{{ link.text }}</a>.
+      Here is some examples of my previous work. For more you can visit my <a class="portfolio__link"  target="_blank"  :href="link.href">{{ link.text }}</a>.
     </p>
     <ul class="portfolio__list">
       <li class="portfolio__item" v-for="item in portfolio" :key="item.href">

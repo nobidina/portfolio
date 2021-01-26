@@ -86,13 +86,10 @@ export default {
       flex-shrink: 0;
       width: 50%;
     }
+  }
 
-    &:hover {
-      .skills__scale-fill {
-        animation: tremble 1s step-start infinite;
-        // animation: fill 2s .4s ease;
-      }
-    }
+  &__scale-fill {
+    animation: tremble 1s step-start infinite;
   }
 
   &__item {

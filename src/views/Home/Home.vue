@@ -122,8 +122,8 @@ export default {
         },
         {
           date: "April 2016 - July 2016",
-          title: "Web Development | ITMO University (via openedu.ru)",
-          description: "I started from an Introductory Web development (HTML & CSS) course from one of the most famous IT universities in Russia represented on the openedu.ru platform."
+          title: `Web Development | ITMO University (via <a href="https://openedu.ru/" target="_blank">openedu.ru</a>)`,
+          description: `I started from an Introductory Web development (HTML & CSS) course from one of the most famous IT universities in Russia represented on the <a href="https://openedu.ru/" target="_blank">openedu.ru</a> platform.`
         },
         {
           date: "October 2016 - December 2016",
@@ -133,7 +133,7 @@ export default {
         {
           date: "September 2017 - February 2018",
           title: "Frontend Developer | Self-employed",
-          description: "After some home practice I finelly found a real job on this fild. It was frilance. I've made HTML & CSS from PSD for clients."
+          description: "After some home practice I finally found a real job on this fild. It was frilance. I've made HTML & CSS from PSD for clients."
         },
         {
           date: "October 2017 - December 2017",
@@ -143,10 +143,10 @@ export default {
         {
           date: "February 2018 - September 2019",
           title: "Frontend Developer | Domovenok",
-          description: 'And finally fulltime ofice job. I was developing and supporting the <a href="https://www.domovenok.ru/" target="_blank">https://www.domovenok.ru/</a> website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battle field. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products.'
+          description: `And finally fulltime ofice job. I was developing and supporting the <a href="https://www.domovenok.ru/" target="_blank">domovenok.ru</a> website pages using HTML / CSS / BEM / PostCSS / JS. Also employee personal account and client personal account Web applications was my battle field. I used HTML / CSS / BEM / PostCSS / VueJS for that. Sometimes we developed landing pages for side products.`
         },
         {
-          date: "October 2018 - Present time",
+          date: "October 2019 - Present time",
           title: "Relocate time",
           description: "My husband got a job in London and we relocate here from Moscow. So I was busy organazed this. When the relocate was complete. I took a brake to exhale, improve my professional skills and my level of English. Now I think I ready to get new wonderfull job and do it as good as I can."
         }
@@ -191,7 +191,7 @@ export default {
       },
       contacts: [
         {
-          link: "#",
+          link: "https://www.linkedin.com/in/nadezhda-obidina-15765a145/",
           icon: "linked-in"
         },
         {

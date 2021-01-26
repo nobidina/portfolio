@@ -34,9 +34,7 @@
           </svg>
         </div>
         <div class="history__text-wrapper">
-          <h3 class="history__title">
-            {{ item.title }}
-          </h3>
+          <h3 class="history__title" v-html="item.title"></h3>
           <span class="history__date">
             {{ item.date }}
           </span>
@@ -190,6 +188,11 @@ export default {
 </style>
 
 <style scoped>
+  .history__title >>> a {
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
   .history__text >>> a {
     text-decoration: underline;
     color: #2c3e50;
