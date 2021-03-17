@@ -120,7 +120,7 @@ const user = {
         alt: "city website"
       },
       {
-        href: "#",
+        href: "https://nobidina.github.io/blog/",
         imgSrc: blog_1x,
         imgSrcset: blog_2x,
         imgSrcColor: blogColor_1x,
