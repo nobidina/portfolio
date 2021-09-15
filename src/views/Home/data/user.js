@@ -61,11 +61,15 @@ const user = {
       },
       {
         name: "JS",
-        score: 60
+        score: 70
       },
       {
         name: "VueJS",
-        score: 60
+        score: 80
+      },
+      {
+        name: "React",
+        score: 50
       }
     ],
     history: [
@@ -107,7 +111,7 @@ const user = {
       {
         date: "October 2019 - Present time",
         title: "Relocate time",
-        description: "My husband got a job in London and we relocate here from Moscow. So I was busy organized this. When the relocation was complete. I took a break to exhale, improve my professional skills and my level of English. Now I think I ready to get a new wonderful job and do it as well as I can."
+        description: `My husband got a job in London and we relocate here from Moscow. So I was busy organized this. When the relocation was complete I took a break to exhale, improve my professional skills, make a couple of pet-projects (like this page or the <a href="https://nobidina.github.io/blog/" target="_blank">blog</a> one), and my level of English. Now I think I am ready to get a new wonderful job and do it as well as I can.`
       }
     ],
     portfolio: [
